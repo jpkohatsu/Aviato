@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!-- jTinder CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/jTinder.css">
   <!--Custom CSS-->
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -34,8 +36,8 @@
     <div class="searchBar"></div>
 
     <!--Result Cards-->
-    <div class="resultCards">
-      <div class="result">This is a result card placeholder.</div>
+    <div class="container">
+      <div id="tinderslide" class="resultCards"></div>
     </div>
 
     <!--My Jobs Page-->
@@ -48,6 +50,10 @@
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- transform 2D library, required by jTinder jQuery plugin -->
+  <script type="text/javascript" src="assets/javascript/jquery.transform2d.js"></script>
+  <!-- jTinder jQuery plugin (https://github.com/do-web/jTinder) -->
+  <script type="text/javascript" src="assets/javascript/jquery.jTinder.js"></script>
   <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
