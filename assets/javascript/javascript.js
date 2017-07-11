@@ -1,3 +1,16 @@
-var authKey = "2548872276202692";
+// on.Clicks for navbar buttons
+$(".search").on("click", function() {
+    $(".myJobsPage").addClass("hide hoverable");
+});
 
-console.log("connected");
+$(".heart").on("click", function() {
+    $("").add
+});
+
+// This code is for the hover over the icons //
+$(".icon").mouseenter(function(){
+    $(this).addClass("red lighten-4");
+}).mouseleave(function(){
+    $(this).removeClass("red lighten-4");
+}
+    );
