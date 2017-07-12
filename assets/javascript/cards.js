@@ -245,6 +245,20 @@ var searchResults = {
    ]
 };
 
+function animateOffScreen(e, direction) {
+  var options = {};
+  var opacity = "opacity";
+  options[direction] = 500;
+  options[opacity] = 0;
+  $(e).closest(".card").animate(
+    options,
+    500,
+    "easeOutQuart",
+    function() {
+      console.log("Animation complete");
+  });
+}
+
 $(document).ready(function() {
   // Did this file load?
   console.log("cards.js loaded");
@@ -283,23 +297,25 @@ $(document).ready(function() {
   $(".likeButton").click(function(e) {
     e.preventDefault();
     console.log("Like button clicked");
+    animateOffScreen(this, "left");
   });
 
   $(".dislikeButton").click(function(e) {
     e.preventDefault();
     console.log("Like button clicked");
+    animateOffScreen(this, "right");
   });
 
   // The following events use jQuery Mobile
   // Note: These only capture swipe actions — they don't initiate any kind of
   // animated behavior (i.e. dragging a card off screen)
-  $(".card").on("swipeleft",function(){
-    console.log("swipeLeft");
-  });
-
-  $(".card").on("swiperight",function(){
-    console.log("swipeRight");
-  });
+  // $(".card").on("swipeleft",function(){
+  //   console.log("swipeLeft");
+  // });
+  //
+  // $(".card").on("swiperight",function(){
+  //   console.log("swipeRight");
+  // });
 
 
 
