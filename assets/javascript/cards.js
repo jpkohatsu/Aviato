@@ -262,7 +262,7 @@ $(document).ready(function() {
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='result card small sticky-action'>",
+      "<div class='result card medium sticky-action'>",
       "<div class='card-image waves-effect waves-block waves-light'>",
       "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
       "</div>",
@@ -270,6 +270,7 @@ $(document).ready(function() {
       "<span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span>",
       "<p><a href='#'>This is a link</a></p>",
       "</div>",
+      "<div class='card-action'><a href='#'>Dislike</a><a href='#'>Like</a></div>",
       "<div class='card-reveal'>",
       "<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span>",
       "<p>Here is some more information about this product that is only revealed once clicked on.</p>",
@@ -281,9 +282,13 @@ $(document).ready(function() {
     console.log(li);
   }
 
+  $(".card").on("swipeleft",function(){
+    console.log("swipeLeft");
+  });
 
+  $(".card").on("swiperight",function(){
+    console.log("swipeRight");
+  });
 
-  // jTinder initalization
-  $(".resultCards").jTinder();
 
 });
