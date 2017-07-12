@@ -1,3 +1,7 @@
+/* ====================================
+VARIABLES
+======================================= */
+
 // Eventually, we'll replace this with actual data returned from the Indeed API
 var searchResults = {
    "version":2,
@@ -267,13 +271,13 @@ function generateSearchResults(apiData) {
   // Store jobs in an array
   var jobsArray = apiData.results;
   // Can we traverse the data?
-  console.log("City: "+jobsArray[0].city);
+  // console.log("City: "+jobsArray[0].city);
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='result card sticky-action'>",
+      "<div class='result card sticky-action' id='card"+jobsArray[i].jobkey+"' style='z-index: "+i*100+";'>",
       "<div class='card-image waves-effect waves-block waves-light'>",
       "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
       "</div>",
@@ -291,6 +295,7 @@ function generateSearchResults(apiData) {
     output = output.join("");
     $(".resultCards").append(output);
   }
+  // Show the first card
 }
 
 $(document).ready(function() {

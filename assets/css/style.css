@@ -11,6 +11,13 @@ h1{
 CARD STYLES
 ================================= */
 /* like/dislike buttons */
+.resultCards {
+  position: relative;
+}
+.card {
+  /* Hide cards initially; show with jQuery */
+  /*display: none;*/
+}
 .card .likeButton i, .dislikeButton i {
   font-size: 4rem;
   transition: color .3s linear;
