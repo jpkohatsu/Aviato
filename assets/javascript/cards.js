@@ -256,15 +256,16 @@ function animateOffScreen(e, direction) {
     "easeOutQuart",
     function() {
       console.log("Animation complete");
-  });
+    }
+  );
 }
 
-$(document).ready(function() {
+function generateSearchResults(apiData) {
   // Did this file load?
   console.log("cards.js loaded");
 
   // Store jobs in an array
-  var jobsArray = searchResults.results;
+  var jobsArray = apiData.results;
   // Can we traverse the data?
   console.log("City: "+jobsArray[0].city);
 
@@ -277,21 +278,27 @@ $(document).ready(function() {
       "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
       "</div>",
       "<div class='card-content'>",
-      "<span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span>",
-      "<p><a href='#'>This is a link</a></p>",
+      "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"<i class='material-icons right'>more_vert</i></span>",
+      "<p><a href='"+jobsArray[i].url+"' target='_blank'>View full post</a></p>",
       "</div>",
       "<div class='card-action'>",
       "<a class='dislikeButton' href='#'><i class='fa fa-times-circle-o red-text' aria-hidden='true'></i></a>",
       "<a class='likeButton' href='#'><i class='fa fa-check-circle-o  green-text' aria-hidden='true'></i></a></div>",
       "<div class='card-reveal'>",
-      "<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span>",
-      "<p>Here is some more information about this product that is only revealed once clicked on.</p>",
+      "<span class='card-title grey-text text-darken-4'>"+jobsArray[i].jobtitle+"<i class='material-icons right'>close</i></span>",
+      "<p>"+jobsArray[i].snippet+"</p>",
       "</div>",
       "</div>",
     ];
     output = output.join("");
     $(".resultCards").append(output);
   }
+}
+
+$(document).ready(function() {
+
+  generateSearchResults(searchResults);
+
 
   // Handlers for the like/dislike buttons on cards
   $(".likeButton").click(function(e) {
@@ -316,8 +323,6 @@ $(document).ready(function() {
   // $(".card").on("swiperight",function(){
   //   console.log("swipeRight");
   // });
-
-
 
 
 });
