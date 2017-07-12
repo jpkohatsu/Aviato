@@ -275,19 +275,17 @@ function generateSearchResults(apiData) {
     var output = [
       "<div class='result card sticky-action'>",
       "<div class='card-image waves-effect waves-block waves-light'>",
-      "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
+      "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
       "</div>",
       "<div class='card-content'>",
-      "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"<i class='material-icons right'>more_vert</i></span>",
+      "<h4 class='grey-text text-darken-1'>"+jobsArray[i].company+"</h4>",
+      "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"</span>",
+      "<p>"+jobsArray[i].snippet+"</p>",
       "<p><a href='"+jobsArray[i].url+"' target='_blank'>View full post</a></p>",
       "</div>",
       "<div class='card-action'>",
       "<a class='dislikeButton' href='#'><i class='fa fa-times-circle-o red-text' aria-hidden='true'></i></a>",
       "<a class='likeButton' href='#'><i class='fa fa-check-circle-o  green-text' aria-hidden='true'></i></a></div>",
-      "<div class='card-reveal'>",
-      "<span class='card-title grey-text text-darken-4'>"+jobsArray[i].jobtitle+"<i class='material-icons right'>close</i></span>",
-      "<p>"+jobsArray[i].snippet+"</p>",
-      "</div>",
       "</div>",
     ];
     output = output.join("");
@@ -299,7 +297,6 @@ $(document).ready(function() {
 
   generateSearchResults(searchResults);
 
-
   // Handlers for the like/dislike buttons on cards
   $(".likeButton").click(function(e) {
     e.preventDefault();
@@ -309,20 +306,9 @@ $(document).ready(function() {
 
   $(".dislikeButton").click(function(e) {
     e.preventDefault();
-    console.log("Like button clicked");
+    console.log("Dislike button clicked");
     animateOffScreen(this, "right");
   });
-
-  // The following events use jQuery Mobile
-  // Note: These only capture swipe actions — they don't initiate any kind of
-  // animated behavior (i.e. dragging a card off screen)
-  // $(".card").on("swipeleft",function(){
-  //   console.log("swipeLeft");
-  // });
-  //
-  // $(".card").on("swiperight",function(){
-  //   console.log("swipeRight");
-  // });
 
 
 });
