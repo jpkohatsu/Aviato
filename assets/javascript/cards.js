@@ -261,25 +261,20 @@ $(document).ready(function() {
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
-    // var output = [
-    //   "<div class='result card small sticky-action'>",
-    //   "<div class='card-image waves-effect waves-block waves-light'>",
-    //   "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
-    //   "</div>",
-    //   "<div class='card-content'>",
-    //   "<span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span>",
-    //   "<p><a href='#'>This is a link</a></p>",
-    //   "</div>",
-    //   "<div class='card-reveal'>",
-    //   "<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span>",
-    //   "<p>Here is some more information about this product that is only revealed once clicked on.</p>",
-    //   "</div>",
-    //   "</div>",
-    // ];
     var output = [
-      "<img class='img'></div>",
-      "<div class='card-content'>Card Title</div>",
-      "<div class='like'></div><div class='dislike'></div>"
+      "<div class='result card small sticky-action'>",
+      "<div class='card-image waves-effect waves-block waves-light'>",
+      "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
+      "</div>",
+      "<div class='card-content'>",
+      "<span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span>",
+      "<p><a href='#'>This is a link</a></p>",
+      "</div>",
+      "<div class='card-reveal'>",
+      "<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span>",
+      "<p>Here is some more information about this product that is only revealed once clicked on.</p>",
+      "</div>",
+      "</div>",
     ];
     output = output.join("");
     var li = $('<li/>').addClass('pane'+i).html(output).appendTo($resultsList);
