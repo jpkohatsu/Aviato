@@ -1,3 +1,14 @@
+// Section 1
+var authKey = "254887722762";
+
+
+
+
+
+
+//End Section 1
+
+
 // on.Clicks for navbar buttons
 $(".search").on("click", function() {
     $(".myJobsPage").addClass("hide hoverable");
