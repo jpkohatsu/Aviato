@@ -245,50 +245,84 @@ var searchResults = {
    ]
 };
 
-$(document).ready(function() {
+function animateOffScreen(e, direction) {
+  var options = {};
+  var opacity = "opacity";
+  options[direction] = 500;
+  options[opacity] = 0;
+  $(e).closest(".card").animate(
+    options,
+    500,
+    "easeOutQuart",
+    function() {
+      console.log("Animation complete");
+    }
+  );
+}
+
+function generateSearchResults(apiData) {
   // Did this file load?
   console.log("cards.js loaded");
 
   // Store jobs in an array
-  var jobsArray = searchResults.results;
+  var jobsArray = apiData.results;
   // Can we traverse the data?
   console.log("City: "+jobsArray[0].city);
-
-  // Start list, as required by jTinder
-  var $resultsList = $("<ul>");
-  $(".resultCards").append($resultsList);
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='result card medium sticky-action'>",
+      "<div class='result card sticky-action'>",
       "<div class='card-image waves-effect waves-block waves-light'>",
       "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
       "</div>",
       "<div class='card-content'>",
-      "<span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span>",
-      "<p><a href='#'>This is a link</a></p>",
+      "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"<i class='material-icons right'>more_vert</i></span>",
+      "<p><a href='"+jobsArray[i].url+"' target='_blank'>View full post</a></p>",
       "</div>",
-      "<div class='card-action'><a href='#'>Dislike</a><a href='#'>Like</a></div>",
+      "<div class='card-action'>",
+      "<a class='dislikeButton' href='#'><i class='fa fa-times-circle-o red-text' aria-hidden='true'></i></a>",
+      "<a class='likeButton' href='#'><i class='fa fa-check-circle-o  green-text' aria-hidden='true'></i></a></div>",
       "<div class='card-reveal'>",
-      "<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span>",
-      "<p>Here is some more information about this product that is only revealed once clicked on.</p>",
+      "<span class='card-title grey-text text-darken-4'>"+jobsArray[i].jobtitle+"<i class='material-icons right'>close</i></span>",
+      "<p>"+jobsArray[i].snippet+"</p>",
       "</div>",
       "</div>",
     ];
     output = output.join("");
-    var li = $('<li/>').addClass('pane'+i).html(output).appendTo($resultsList);
-    console.log(li);
+    $(".resultCards").append(output);
   }
+}
 
-  $(".card").on("swipeleft",function(){
-    console.log("swipeLeft");
+$(document).ready(function() {
+
+  generateSearchResults(searchResults);
+
+
+  // Handlers for the like/dislike buttons on cards
+  $(".likeButton").click(function(e) {
+    e.preventDefault();
+    console.log("Like button clicked");
+    animateOffScreen(this, "left");
   });
 
-  $(".card").on("swiperight",function(){
-    console.log("swipeRight");
+  $(".dislikeButton").click(function(e) {
+    e.preventDefault();
+    console.log("Like button clicked");
+    animateOffScreen(this, "right");
   });
+
+  // The following events use jQuery Mobile
+  // Note: These only capture swipe actions — they don't initiate any kind of
+  // animated behavior (i.e. dragging a card off screen)
+  // $(".card").on("swipeleft",function(){
+  //   console.log("swipeLeft");
+  // });
+  //
+  // $(".card").on("swiperight",function(){
+  //   console.log("swipeRight");
+  // });
 
 
 });
