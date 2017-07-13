@@ -13,6 +13,7 @@ CARD STYLES
 /* like/dislike buttons */
 .resultCards {
   position: relative;
+  min-height: 700px;
 }
 .job {
   /* Hide cards initially; show with jQuery */
@@ -24,25 +25,27 @@ CARD STYLES
   /*height: 800px;*/
   /*position: absolute;*/
 }
-.card {}
-
-.card .likeButton i, .dislikeButton i {
-  font-size: 4rem;
-  transition: color .3s linear;
+.job .card {}
+.job .card .card-content {
+  height: 300px;
 }
-.card .likeButton i {
-  float: right;
-}
-.card .likeButton i:hover {
-  color: #388e3c !important;
-}
-.card .dislikeButton i:hover {
-  color: #c62828 !important;
-}
-.card .card-content h4 {
+.job .card .card-content h4 {
   font-size: 1rem;
   text-transform: uppercase;
 }
-.card .card-content p {
+.job .card .card-content p {
   margin-top: 1rem;
+}
+.job .card .likeButton i, .dislikeButton i {
+  font-size: 4rem;
+  transition: color .3s linear;
+}
+.job .card .likeButton i {
+  float: right;
+}
+.job .card .likeButton i:hover {
+  color: #388e3c !important;
+}
+.job .card .dislikeButton i:hover {
+  color: #c62828 !important;
 }

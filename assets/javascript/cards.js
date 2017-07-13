@@ -16,17 +16,17 @@ function animateOffScreen(e, direction) {
   console.log(options);
   $(e).closest(".job").animate(
     options,
-    600,
-    "easeInBack",
+    400,
+    "easeInQuart",
     function() {
       console.log("Animation complete");
-      $(e).closest(".job").css("display","none");
+      // $(e).closest(".job").css("display","none");
     }
   );
 }
 
 function showNextCard() {
-  if(cardCounter <= totalCards) {
+  if(cardCounter < totalCards) {
     $("#job"+cardCounter).css("display", "block");
     cardCounter++;
   } else {
