@@ -11,21 +11,51 @@ h1{
   padding-left: 10px;
 }
 
+#jobs, #meetups {
+  overflow-x: hidden;
+}
+
 /* ==============================
 CARD STYLES
 ================================= */
 /* like/dislike buttons */
-.likeButton i, .dislikeButton i {
+.resultCards {
+  position: relative;
+  min-height: 700px;
+  /*overflow-x: hidden;*/
+}
+.job {
+  /* Hide cards initially; show with jQuery */
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-width: 100%;
+  /*height: 800px;*/
+  /*position: absolute;*/
+}
+.job .card {}
+.job .card .card-content {
+  height: 300px;
+}
+.job .card .card-content h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.job .card .card-content p {
+  margin-top: 1rem;
+}
+.job .card .likeButton i, .dislikeButton i {
   font-size: 4rem;
   transition: color .3s linear;
 }
-.likeButton i {
+.job .card .likeButton i {
   float: right;
 }
-.likeButton i:hover {
+.job .card .likeButton i:hover {
   color: #388e3c !important;
 }
-.dislikeButton i:hover {
+.job .card .dislikeButton i:hover {
   color: #c62828 !important;
 }
 
