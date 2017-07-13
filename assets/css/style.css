@@ -1,6 +1,26 @@
-
 * {
   box-sizing: border-box;
 }
 
+h1{
+    color: red;
+}
 
+
+/* ==============================
+CARD STYLES
+================================= */
+/* like/dislike buttons */
+.likeButton i, .dislikeButton i {
+  font-size: 4rem;
+  transition: color .3s linear;
+}
+.likeButton i {
+  float: right;
+}
+.likeButton i:hover {
+  color: #388e3c !important;
+}
+.dislikeButton i:hover {
+  color: #c62828 !important;
+}

@@ -21,5 +21,12 @@ $(document).ready(function() {
     $(this).addClass("red lighten-4");
   }).mouseleave(function() {
     $(this).removeClass("red lighten-4");
+<<<<<<< HEAD
   });
 });
+=======
+}
+    );
+    
+
+>>>>>>> a68dc95dde80392ab05b0ae5432422523436a268

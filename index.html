@@ -7,23 +7,36 @@
 
 <!--Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
   <!--Style CSS-->
   <link rel="stylesheet" href="assets/css/style.css">
-    
 
 </head>
 
 <body>
 
-
+<main>
+<!--Tab Titles and styling-->
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col l3 m2 s1 tabs-fixed-width"><a class="active" href="#jobs">Jobs</a></li>
+        <li class="tab col l3 m2 s1 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
+      </ul>
+    </div>
+    
+    <!--Jobs Tab Start-->
+    <div id="jobs" class="col s12">
+   
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
-      <ul class="right hide-on-med-and-down">
+      <a href="#!" class="brand-logo center"><i class="material-icons">cloud</i>Logo</a>
+      <ul class="right">
         <li><i class="material-icons">search</i></li>
         <li><i class="material-icons">view_module</i></li>
 
@@ -33,14 +46,17 @@
   </nav>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 
 >>>>>>> 388c3099a94abd501d3f8ed99eb991bba859f23f
 
+=======
+>>>>>>> a68dc95dde80392ab05b0ae5432422523436a268
   <!--Navbar-->
-  <main>
+  
 
 
     <!--Search-->
@@ -133,12 +149,32 @@
     </div>
 
     <!--Result Cards-->
-    <div class="resultCards">
-      <div class="result">This is a result card placeholder.</div>
+    <div class="container">
+      <div class="resultCards"></div>
     </div>
 
     <!--My Jobs Page-->
     <div class="myJobsPage"></div>
+    
+    
+    </div>
+    
+    <!--Meetups Tab-->
+     <div id="meetups" class="col s12">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo center"><i class="material-icons">cloud</i>Logo</a>
+            <ul class="right">
+              <li><i class="material-icons">search</i></li>
+              <li><i class="material-icons">view_module</i></li>
+            </ul>
+          </div>
+        </nav>
+        
+        
+     </div>
+     
+</div>
 
 
   </main>
@@ -146,16 +182,22 @@
   <!--Footer-->
   <footer class="page-footer"></footer>
 
+
     <!-- jQuery -->
    <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
+  <!-- jQuery UI -->
+  <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
     <!-- Materiablize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   <!--Javascript-->
   <script type="text/javascript" src="assets/javascript/javascript.js"></script>
-
+  <script src="./assets/javascript/cards.js"></script>
 
 </body>
 
