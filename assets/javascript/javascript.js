@@ -1,5 +1,17 @@
-// on.Clicks for navbar buttons
-$(".search").on("click", function() {
+//This code is for the search bar animations
+$(document).ready(function() {
+  //jquery goes inside
+
+
+});
+  // Section 1
+
+
+  //End Section 1
+
+
+  // on.Clicks for navbar buttons
+  $(".search").on("click", function() {
     $(".myJobsPage").addClass("hide hoverable");
     $(".searchBar").removeClass("hide");
     $(".resultCards").removeClass("hide");
@@ -12,10 +24,10 @@ $(".heart").on("click", function() {
     $(".myJobsPage").removeClass("hide");
 });
 
-// This code is for the hover over the icons //
-$(".icon").mouseenter(function(){
+  // This code is for the hover over the icons //
+  $(".icon").mouseenter(function() {
     $(this).addClass("red lighten-4");
-}).mouseleave(function(){
+  }).mouseleave(function() {
     $(this).removeClass("red lighten-4");
 }
 );
@@ -284,6 +296,7 @@ $(document).ready(function() {
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
+
 
     var url = jobsArray[i].url;
     console.log("this is the url " + url);
