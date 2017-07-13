@@ -1,27 +1,25 @@
-// Section 1
-var authKey = "254887722762";
+$(document).ready(function() {
+  //jquery goes inside
+
+  // Section 1
 
 
+  //End Section 1
 
 
-
-
-//End Section 1
-
-
-// on.Clicks for navbar buttons
-$(".search").on("click", function() {
+  // on.Clicks for navbar buttons
+  $(".search").on("click", function() {
     $(".myJobsPage").addClass("hide hoverable");
-});
+  });
 
-$(".heart").on("click", function() {
+  $(".heart").on("click", function() {
     $("").add
-});
+  });
 
-// This code is for the hover over the icons //
-$(".icon").mouseenter(function(){
+  // This code is for the hover over the icons //
+  $(".icon").mouseenter(function() {
     $(this).addClass("red lighten-4");
-}).mouseleave(function(){
+  }).mouseleave(function() {
     $(this).removeClass("red lighten-4");
-}
-    );
+  });
+});
