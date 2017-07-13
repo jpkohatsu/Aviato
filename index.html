@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Aviato</title>
 
-<!--Material Icons -->
+  <!--Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,10 +28,10 @@
         <li class="tab col l3 m2 s1 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
       </ul>
     </div>
-    
+
     <!--Jobs Tab Start-->
     <div id="jobs" class="col s12">
-   
+
 
   <nav>
     <div class="nav-wrapper">
@@ -39,112 +39,88 @@
       <ul class="right">
         <li><i class="material-icons">search</i></li>
         <li><i class="material-icons">view_module</i></li>
-
-
       </ul>
     </div>
   </nav>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> 388c3099a94abd501d3f8ed99eb991bba859f23f
-
-=======
->>>>>>> a68dc95dde80392ab05b0ae5432422523436a268
   <!--Navbar-->
-  
+
 
 
     <!--Search-->
-    <div class="searchBar">
-      <!--Row and form containing all content-->
-      <div class="row">
-        <form action="#" class="col s12">
-          <!--Row containing all query content-->
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="query" type="search" class="validate">
-              <label for="query">job title, company name, or networking group</label>
+    <div class="container">
+      <div class="searchBar">
+        <!--Row and form containing all content-->
+        <div class="row">
+          <form action="#" class="col s12">
+            <!--Row containing all query content-->
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="query" type="search" class="validate">
+                <label for="query">job title, company name, or networking group</label>
+              </div>
             </div>
-          </div>
-          <!--Row containing all location and radius content-->
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="location" type="search" class="validate">
-              <label for="location">city, state or zip code</label>
-            </div>
-            <div class="input-field col s6">
-              <select class="browser-default" id="radius">
+            <!--Row containing all location and radius content-->
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="location" type="search" class="validate">
+                <label for="location">city, state or zip code</label>
+              </div>
+              <div class="input-field col s6">
+                <select class="browser-default" id="radius">
                   <option value="" disabled selected>Distance</option>
                   <option value="1">10 miles</option>
                   <option value="2">20 miles</option>
                   <option value="3">30 miles</option>
                 </select>
+              </div>
             </div>
-          </div>
-          <!--Row containing Job/Networking buttons content-->
-          <div class="row">
-            <div class="input-field col s6">
-              <p>
-                <input class="with-gap" name="group3" type="radio" id="btn-jobs" checked />
-                <label for="btn-jobs">Jobs</label>
-              </p>
-            </div>
-            <div class="input-field col s6">
-              <p>
-                <input class="with-gap" name="group3" type="radio" id="btn-networking" checked />
-                <label for="btn-jobs">Networking</label>
-              </p>
-            </div>
-          </div>
-          <!--Row containing all advanced search and filter content-->
-          <div class="row">
-            <ul class="collapsible" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header"><span class="badge"></span><i class="material-icons">settings_applications</i>Advanced Job Search</div>
-                <div class="collapsible-body">
-                  <p>
-                    <!--Row containing all company search content-->
-                    <div class="row">
-                      <div class="col s12">
-                        From this company:
-                        <div class="input-field inline">
-                          <input id="company-search" type="search" class="validate">
-                          <label for="company-search" data-error="wrong" data-success="right">Company Name</label>
+            <!--Row containing all advanced search and filter content-->
+            <div class="row">
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header"><span class="badge"></span><i class="material-icons">settings_applications</i>Advanced Job Search</div>
+                  <div class="collapsible-body">
+                    <p>
+                      <!--Row containing all company search content-->
+                      <div class="row">
+                        <div class="col s12">
+                          From this company:
+                          <div class="input-field inline">
+                            <input id="company-search" type="search" class="validate">
+                            <label for="company-search" data-error="wrong" data-success="right">Company Name</label>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <!--Row containing all agency filter content-->
-                    <div class="row">
-                    <div class="input-field col s6">
-                      <input type="checkbox" class="filled-in" id="agency-filter" checked="checked" />
-                      <label for="filled-in-box">Exclude staffing agencies</label>
-                    </div>
-                  </div>
-                  <!--Row containing all job source filter content-->
-                    <div class="row">
-                      <div class="col s12">
-                        Show jobs from:
-                        <div class="input-field inline">
-                          <select class="browser-default" id="source-filter">
+                      <!--Row containing all agency filter content-->
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input type="checkbox" class="filled-in" id="agency-filter" checked="checked" />
+                          <label for="filled-in-box">Exclude staffing agencies</label>
+                        </div>
+                      </div>
+                      <!--Row containing all job source filter content-->
+                      <div class="row">
+                        <div class="col s12">
+                          Show jobs from:
+                          <div class="input-field inline">
+                            <select class="browser-default" id="source-filter">
                           <option value="" disabled selected>Source</option>
                           <option value="1">All web sites</option>
                           <option value="2">Job boards only</option>
                           <option value="3">Employer web sites only </option>
                         </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </form>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -154,11 +130,11 @@
     </div>
 
     <!--My Jobs Page-->
-    <div class="myJobsPage"></div>
-    
-    
+    <div class="myJobsPage hide"></div>
+
+
     </div>
-    
+
     <!--Meetups Tab-->
      <div id="meetups" class="col s12">
         <nav>
@@ -170,10 +146,10 @@
             </ul>
           </div>
         </nav>
-        
-        
+
+
      </div>
-     
+
 </div>
 
 
@@ -183,18 +159,12 @@
   <footer class="page-footer"></footer>
 
 
-    <!-- jQuery -->
-   <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <!-- jQuery UI -->
-  <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
-    <!-- Materiablize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <!-- Materiablize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   <!--Javascript-->
   <script type="text/javascript" src="assets/javascript/javascript.js"></script>
   <script src="./assets/javascript/cards.js"></script>
