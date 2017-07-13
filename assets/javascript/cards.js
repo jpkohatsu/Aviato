@@ -8,19 +8,20 @@ FUNCTIONS
 ======================================= */
 
 function animateOffScreen(e, direction) {
+  e = $("#"+e);
+  console.log("e: " + e);
   var winWidth = parseInt($(window).width());
-  var elementWidth = parseInt($(e).closest(".job").width());
   var distanceToMove = winWidth;
   var options = {};
   options[direction] = distanceToMove;
   console.log(options);
-  $(e).closest(".job").animate(
+  $(e).animate(
     options,
     400,
     "easeInQuart",
     function() {
       console.log("Animation complete");
-      $(e).closest(".job").css("display","none");
+      $(e).css("display","none");
     }
   );
 }
@@ -84,24 +85,33 @@ $(document).ready(function() {
     e.preventDefault();
     console.log("Like button clicked");
     showNextCard();
-    animateOffScreen(this, "left");
+    var id = this.closest(".job");
+    id = $(id).attr("id");
+    animateOffScreen(id, "left");
   });
 
   $(".dislikeButton").click(function(e) {
     e.preventDefault();
     console.log("Dislike button clicked");
     showNextCard();
-    animateOffScreen(this, "right");
+    var id = this.closest(".job");
+    id = $(id).attr("id");
+    animateOffScreen(id, "right");
   });
 
   // Handlers for swipe events
   $(".job").on("swipeleft", function(e) {
     console.log("Swipe left!");
-    animateOffScreen(this, "right");
+    var id = $(this).attr("id");
+    showNextCard();
+    animateOffScreen(id, "right");
   });
 
   $(".job").on("swiperight", function(e) {
     console.log("Swipe right!");
+    var id = $(this).attr("id");
+    showNextCard();
+    animateOffScreen(id, "left");
   });
 
 });
