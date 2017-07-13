@@ -2,29 +2,36 @@
 VARIABLES
 ======================================= */
 var cardCounter = 0;
+var totalCards;
 /* ====================================
 FUNCTIONS
 ======================================= */
 
 function animateOffScreen(e, direction) {
+  var winWidth = parseInt($(window).width());
+  var elementWidth = parseInt($(e).closest(".job").width());
+  var distanceToMove = winWidth;
   var options = {};
-  var opacity = "opacity";
-  options[direction] = 600;
-  options[opacity] = 0;
-  $(e).closest(".card").animate(
+  options[direction] = distanceToMove;
+  console.log(options);
+  $(e).closest(".job").animate(
     options,
     600,
     "easeInBack",
     function() {
       console.log("Animation complete");
-      $(e).css("display","none");
+      $(e).closest(".job").css("display","none");
     }
   );
 }
 
 function showNextCard() {
-  $("#job"+cardCounter).show();
-  cardCounter++;
+  if(cardCounter <= totalCards) {
+    $("#job"+cardCounter).css("display", "block");
+    cardCounter++;
+  } else {
+    $(".resultCards").html("No more cards.");
+  }
 }
 
 function generateSearchResults(apiData) {
@@ -33,15 +40,16 @@ function generateSearchResults(apiData) {
 
   // Store jobs in an array
   var jobsArray = apiData.results;
-  // Can we traverse the data?
-  // console.log("City: "+jobsArray[0].city);
+
+  // Set global variable to number of jobs returned
+  totalCards = jobsArray.length;
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
       "<div class='job' id='job"+i+"'>",
-      "<div class='result card sticky-action ' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-(i*100))+";'>",
+      "<div class='result card' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-i)+";'>",
       "<div class='card-image waves-effect waves-block waves-light'>",
       "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
       "</div>",
