@@ -14,9 +14,10 @@ CARD STYLES
 .resultCards {
   position: relative;
 }
-.card {
+.job {
   /* Hide cards initially; show with jQuery */
-  /*display: none;*/
+  /*display: none;
+  width: 800px;*/
 }
 .card .likeButton i, .dislikeButton i {
   font-size: 4rem;
