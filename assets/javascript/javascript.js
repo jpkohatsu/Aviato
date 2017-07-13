@@ -1,7 +1,7 @@
 //This code is for the search bar animations
 $(document).ready(function() {
   //jquery goes inside
-  
+
 
 });
   // Section 1
@@ -296,6 +296,7 @@ $(document).ready(function() {
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
+
 
     var url = jobsArray[i].url;
     console.log("this is the url " + url);
