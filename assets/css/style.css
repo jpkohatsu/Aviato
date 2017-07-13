@@ -6,9 +6,19 @@ h1{
     color: red;
 }
 
-.heart {
-  padding-right: 20px;
+.icon {
+  margin-right: 20px;
   padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 11px;
+}
+
+.allTabs {
+  margin-top: 5px;
+}
+
+.heart {
+  font-size: 23px;
 }
 
 #jobs, #meetups {
