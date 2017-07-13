@@ -11,6 +11,10 @@ h1{
   padding-left: 10px;
 }
 
+#jobs, #meetups {
+  overflow-x: hidden;
+}
+
 /* ==============================
 CARD STYLES
 ================================= */
@@ -18,6 +22,7 @@ CARD STYLES
 .resultCards {
   position: relative;
   min-height: 700px;
+  /*overflow-x: hidden;*/
 }
 .job {
   /* Hide cards initially; show with jQuery */

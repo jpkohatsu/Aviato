@@ -20,7 +20,7 @@ function animateOffScreen(e, direction) {
     "easeInQuart",
     function() {
       console.log("Animation complete");
-      // $(e).closest(".job").css("display","none");
+      $(e).closest(".job").css("display","none");
     }
   );
 }
@@ -48,7 +48,7 @@ function generateSearchResults(apiData) {
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='job' id='job"+i+"'>",
+      "<div class='job s12 md6' id='job"+i+"'>",
       "<div class='result card' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-i)+";'>",
       "<div class='card-image waves-effect waves-block waves-light'>",
       "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
