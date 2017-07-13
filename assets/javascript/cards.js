@@ -94,6 +94,15 @@ $(document).ready(function() {
     animateOffScreen(this, "right");
   });
 
+  // Handlers for swipe events
+  $(".job").on("swipeleft", function(e) {
+    console.log("Swipe left!");
+    animateOffScreen(this, "right");
+  });
+
+  $(".job").on("swiperight", function(e) {
+    console.log("Swipe right!");
+  });
 
 });
 
