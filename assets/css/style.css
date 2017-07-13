@@ -24,3 +24,7 @@ CARD STYLES
 .dislikeButton i:hover {
   color: #c62828 !important;
 }
+
+.tabs{
+    overflow-x: hidden;
+}
