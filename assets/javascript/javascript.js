@@ -1,6 +1,8 @@
+//This code is for the search bar animations
 $(document).ready(function() {
   //jquery goes inside
   
+
 });
   // Section 1
 
