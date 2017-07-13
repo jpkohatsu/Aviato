@@ -293,7 +293,7 @@ $(document).ready(function() {
     var formattedLocation = jobsArray[i].formattedLocation;
     var snippet= jobsArray[i].snippet;
     var timeSinceSubmitted = jobsArray[i].formattedRelativeTime;
-    var = jobsArray[i].
+    // var = jobsArray[i].
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
       "<div class='result card medium sticky-action'>",
@@ -301,13 +301,22 @@ $(document).ready(function() {
       "<img class='activator' src='http://via.placeholder.com/600x300?text=company+logo'>",
       "</div>",
       "<div class='card-content'>",
-      "<span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span>",
-      "<p><a href='#'>This is a link</a></p>",
+      "<span class='card-title activator grey-text text-darken-4'><i class='material-icons right'>more_vert</i></span>",
+      "<h5>" + title + "</h5>",
       "</div>",
-      "<div class='card-action'><a href='#' class='trashButton'><i class='material-icons right'>thumb_down</i></a></div>",
+      "<div class='card-action'><a href='title' class='trashButton'><i class='material-icons right'>thumb_down</i></a></div>",
       "<div class='card-reveal'>",
-      "<span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span>",
-      "<iframe height='100%' width='100%' src='" + url + "'></iframe>",
+      "<span class='card-title grey-text text-darken-4'>" + title + "<i class='material-icons right'>close</i></span>",
+      //add the job info to the card reveal drawn from the api "Card Title" //
+      "<h5>" + company + "</h5>",
+      '<hr>',
+      "<span class='card-title grey-text text-darken-4'></span>" + formattedLocation,
+
+      "<span class='card-title grey-text text-darken-4'></span>" + snippet,
+
+      "<span class='card-title grey-text text-darken-4'></span>" + timeSinceSubmitted,
+
+
       "</div>",
       "</div>",
 
