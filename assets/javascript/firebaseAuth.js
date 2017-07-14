@@ -41,9 +41,13 @@
      promise.catch(e => console.log(e.message));
   });
   
-  btnLogout.addEventListener("click", e => {
-     firebase.auth().signOut(); 
+  $(".btnLogout").on("click", function() {
+      firebase.auth().signOut(); 
   });
+  
+//   btnLogout.addEventListener("click", e => {
+//      firebase.auth().signOut(); 
+//   });
   
   //add a realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -53,7 +57,7 @@
             $(".btnLogout").removeClass("hide");
         }else{
             console.log("not logged in");
-            btnLogout.classList.add("hide");
+            $(".btnLogout").addClass("hide");
         }
     });
   
