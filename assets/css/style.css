@@ -1,6 +1,75 @@
-
 * {
   box-sizing: border-box;
 }
 
+h1{
+    color: red;
+}
 
+.icon {
+  margin-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 11px;
+}
+
+.allTabs {
+  margin-top: 5px;
+}
+
+.heart {
+  font-size: 23px;
+}
+
+#jobs, #meetups {
+  overflow-x: hidden;
+}
+
+/* ==============================
+CARD STYLES
+================================= */
+/* like/dislike buttons */
+.resultCards {
+  position: relative;
+  min-height: 700px;
+  /*overflow-x: hidden;*/
+}
+.job {
+  /* Hide cards initially; show with jQuery */
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-width: 100%;
+  /*height: 800px;*/
+  /*position: absolute;*/
+}
+.job .card {}
+.job .card .card-content {
+  height: 300px;
+}
+.job .card .card-content h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.job .card .card-content p {
+  margin-top: 1rem;
+}
+.job .card .likeButton i, .dislikeButton i {
+  font-size: 4rem;
+  transition: color .3s linear;
+}
+.job .card .likeButton i {
+  float: right;
+}
+.job .card .likeButton i:hover {
+  color: #388e3c !important;
+}
+.job .card .dislikeButton i:hover {
+  color: #c62828 !important;
+}
+
+.tabs{
+    overflow-x: hidden;
+}
