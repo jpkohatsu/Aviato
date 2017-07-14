@@ -41,7 +41,7 @@
      promise.catch(e => console.log(e.message));
   });
   
-  $(".btnLogout").on("click", function() {
+  $("#btnLogout").on("click", function() {
       firebase.auth().signOut(); 
   });
   
@@ -54,10 +54,10 @@
         if(firebaseUser){
             console.log(firebaseUser);
             console.log("logged in");
-            $(".btnLogout").removeClass("hide");
+            $("#btnLogout").removeClass("hide");
         }else{
             console.log("not logged in");
-            $(".btnLogout").addClass("hide");
+            $("#btnLogout").addClass("hide");
         }
     });
   
