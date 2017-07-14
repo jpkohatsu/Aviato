@@ -3,6 +3,8 @@ VARIABLES
 ======================================= */
 var cardCounter = 0;
 var totalCards;
+var jobsArray = [];
+var searchResults;
 /* ====================================
 FUNCTIONS
 ======================================= */
@@ -39,7 +41,7 @@ function generateSearchResults(apiData) {
   console.log("cards.js loaded");
 
   // Store jobs in an array
-  var jobsArray = apiData.results;
+   jobsArray = apiData.results;
 
   // Set global variable to number of jobs returned
   totalCards = jobsArray.length;
@@ -74,7 +76,7 @@ function generateSearchResults(apiData) {
 
   function logResults(json){
 
-        var searchResults = json;
+        searchResults = json;
         console.log(searchResults);
         generateSearchResults(searchResults);
 
@@ -117,6 +119,28 @@ $(document).on("click", ".theSubmitButton", function(e) {
     console.log("Like button clicked");
     showNextCard();
     animateOffScreen(this, "left");
+    
+    
+    
+    
+    
+    //////////////// local storage and moving card to myjobspage
+    
+    console.log("adding things to local storage");
+    var key = $(this).closest(".job");
+    // key = $(key).attr("id");
+
+    // jobCardsArray.push(key);
+    // jobCardsArray.push("foo");
+    localStorage.setItem("lastClicked", JSON.stringify(key));
+    var controls = $(key).attr("id");
+    console.log(controls);
+    $("#"+controls+" .card-action").remove();
+    $(key).attr("style", "display: block; position: relative !important;");
+    $(key).clone().appendTo(".myJobsPage");
+    
+    
+    ////////////////
   });
 
   $(document).on("click", ".dislikeButton", function(e) {
