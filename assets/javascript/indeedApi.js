@@ -5,10 +5,11 @@
 // var meetupKey = "4678136f382e143935555bf3a387c7c";
 
 console.log("indeed Api js loaded");
-var searchResults;
+var searchResults = [];
 
   
-$(document).on("click", ".theSubmitButton", function() {
+$(document).on("click", ".theSubmitButton", function(e) {
+    e.preventDefault();
     var query = $("#query").val().trim();
     var location = $("#location").val().trim();
     var radius = $("#radius").val();
@@ -25,16 +26,24 @@ $(document).on("click", ".theSubmitButton", function() {
 // //Add Comment Company
 
 
-$.ajax({
+  $.ajax({
     url: "http://api.indeed.com/ads/apisearch?publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
     dataType: "jsonp",
     jsonpCallback: "logResults"
   });
+ 
   
+
+});
+// function runQuery(searchTerm, city) { 
+
+   
   function logResults(json){
     // console.log(json);
     // console.log(json.results);
-        searchResults = json.results.results;
+        searchResults = json.results;
+        console.log(searchResults);
+        generateSearchResults(searchResults);
         
         // for (var i = 0; i < json.results.length; i++) {
         //     console.log("Job Title: " + json.results[i].jobtitle);
@@ -43,9 +52,3 @@ $.ajax({
         // }
     // $("#test").html(JSON.stringify(json));
   };
-  console.log(searchResults);
-   
-});
-// function runQuery(searchTerm, city) { 
-
-  
