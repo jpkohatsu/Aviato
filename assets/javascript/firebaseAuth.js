@@ -1,5 +1,5 @@
   // Initialize Firebase
-  (function() {
+ 
   var config = {
     apiKey: "AIzaSyAJ0HACKr3aFbEs01K_KOIeESI3XQVLKUI",
     authDomain: "test-1f49b.firebaseapp.com",
@@ -56,4 +56,3 @@
         }
     });
   
-  }());
