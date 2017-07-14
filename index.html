@@ -48,8 +48,22 @@
 
 
 
-        <!--Navbar-->
-
+        <!--Login-->
+    <div class="container">
+      <input id="txtEmail" type="email" placeholder="Email">
+      <input type="password" id="txtPassword" placeholder="password">
+      
+      <button id="btnLogin" class="btn btn-action">
+        log in
+      </button>
+      <button id="btnSignUp" class="btn btn-secondary">
+        Sign Up
+      </button>
+      
+      <button id="btnLogout" class="btn btn-action hide">
+        Log out
+      </button>
+    </div>
 
 
     <!--Search-->
@@ -171,11 +185,13 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   <!--Javascript-->
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
   <script type="text/javascript" src="assets/javascript/javascript.js"></script>
   <script src="./assets/javascript/cards.js"></script>
-  <script type="text/javascript" src="./assets/javascript/localStorage.js">
+  <script type="text/javascript" src="./assets/javascript/localStorage.js"></script>
+  <script type="text/javascript" src="./assets/javascript/firebaseAuth"></script>
 
-  </script>
+ 
 
 </body>
 
