@@ -50,7 +50,7 @@
         if(firebaseUser){
             console.log(firebaseUser);
             console.log("logged in");
-            btnLogout.classList.remove("hide");
+            $(btnLogout).removeClass("hide");
         }else{
             console.log("not logged in");
             btnLogout.classList.add("hide");
