@@ -26,6 +26,14 @@ h1{
   overflow-x: hidden;
 }
 
+.input-field input[type=search] {
+  padding-left: 0;
+}
+
+#searchSubmit {
+  /*display: none;*/
+}
+
 /* ==============================
 CARD STYLES
 ================================= */

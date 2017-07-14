@@ -100,19 +100,19 @@ $(document).ready(function() {
   });
 
   // Handlers for swipe events
-  $(".job").on("swipeleft", function(e) {
-    console.log("Swipe left!");
-    var id = $(this).attr("id");
-    showNextCard();
-    animateOffScreen(id, "right");
-  });
-
-  $(".job").on("swiperight", function(e) {
-    console.log("Swipe right!");
-    var id = $(this).attr("id");
-    showNextCard();
-    animateOffScreen(id, "left");
-  });
+  // $(".job").on("swipeleft", function(e) {
+  //   console.log("Swipe left!");
+  //   var id = $(this).attr("id");
+  //   showNextCard();
+  //   animateOffScreen(id, "right");
+  // });
+  //
+  // $(".job").on("swiperight", function(e) {
+  //   console.log("Swipe right!");
+  //   var id = $(this).attr("id");
+  //   showNextCard();
+  //   animateOffScreen(id, "left");
+  // });
 
 });
 
