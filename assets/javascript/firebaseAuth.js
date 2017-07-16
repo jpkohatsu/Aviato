@@ -138,7 +138,7 @@ function googleSignout() {
 
 
 
-var userId = firebase.auth().currentUser.uid;
+var userId = firebase.auth().currentUser.getUid();
 var user = firebase.auth().currentUser;
 
 
