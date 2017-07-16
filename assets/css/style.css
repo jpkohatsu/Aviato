@@ -7,7 +7,6 @@ h1{
 }
 
 .icon {
-  margin-right: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -16,10 +15,11 @@ h1{
 
 .allTabs {
   margin-top: 5px;
+
 }
 
 .heart {
-  font-size: 23px;
+  font-size: 20px;
 }
 
 #jobs, #meetups {
@@ -32,6 +32,16 @@ h1{
 
 #searchSubmit {
   /*display: none;*/
+}
+
+#myJobsCounter {
+  margin-left: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ee6e73;
+}
+
+.loadMore {
+  margin-bottom: 30px;
 }
 
 /* ==============================

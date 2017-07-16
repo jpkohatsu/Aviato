@@ -71,11 +71,12 @@
         <div class="row allTabs">
           <div class="col s12 m12 l12">
             <ul class="tabs">
-              <li class="tab col l3 m3 s3 tabs-fixed-width"><a class="active" href="#jobs">Jobs</a></li>
-              <li class="tab col l3 m3 s3 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
+              <li class="tab col l3 m3 s3 "><a class="active" href="#jobs">Jobs</a></li>
+              <li class="tab col l3 m3 s3 "><a href="#meetups">Meetups</a><span id="meetUpNumbers">1</span></li>
               <!-- <li class="col l4 m4 s4"></li> -->
-              <li class="col s1 m1 l1 offset-l4 offset-s4 offset-m4"><i class="material-icons search icon black-text right">search</i></li>
-              <li class="col s1 m1 l1"><i class="fa fa-heart heart icon black-text"></i></li>
+
+              <li class="col s1 m1 l1 offset-l3 offset-s3 offset-m3"><i class="material-icons search icon black-text">search</i></li>
+              <li class="col s2 m2 l2"><i class="fa fa-heart heart icon black-text "><span id="myJobsCounter"></span></i></li>
             </ul>
           </div>
         </div> <!-- allTabs -->
@@ -108,7 +109,10 @@
         <!--Result Cards-->
         <div class="container">
           <div class="resultCards"></div>
+          <button class="btn btn-action loadMore hide right">Load More</button>
         </div>
+
+        <!--Load More Jobs Button -->
 
         <!--My Jobs Page-->
         <div class="container">

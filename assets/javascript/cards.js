@@ -5,6 +5,7 @@ var cardCounter = 0;
 var totalCards;
 var jobsArray = [];
 var searchResults = [];
+var count = 0;
 /* ====================================
 FUNCTIONS
 ======================================= */
@@ -64,8 +65,8 @@ function generateSearchResults(apiData) {
       "<p><a href='"+jobsArray[i].url+"' target='_blank'>View full post</a></p>",
       "</div>",
       "<div class='card-action'>",
-      "<a class='dislikeButton' href='#'><i class='fa fa-times-circle-o red-text' aria-hidden='true'></i></a>",
-      "<a class='likeButton' href='#'><i class='fa fa-check-circle-o  green-text' aria-hidden='true'></i></a></div>",
+      "<a class='dislikeButton' href='#'><i class='material-icons'>cancel</i></a>",
+      "<a class='likeButton' href='#'><i class='material-icons'>check_circle</i></a></div>",
       "</div>",
       "</div>"
     ];
@@ -142,5 +143,20 @@ $(document).ready(function() {
     id = $(id).attr("id");
     animateOffScreen(id, "right");
   }); // dislike button
+
+// The counter for how many liked jobs to myJobsPage
+  $(document).on("click", ".likeButton", function() {
+    count++;
+    $("#myJobsCounter").html(count);
+    console.log("the like button was clicked");
+  });
+
+// The counter for how many meetup events display (Brent)
+  // $(document).on("click", ".theSubmitButton", function() {
+  //   count++;
+  //   $("#meetUpNumbers").html(count);
+  //   console.log("the like button was clicked");
+  // });
+
 
 });
