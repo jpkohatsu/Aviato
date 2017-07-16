@@ -3,8 +3,6 @@ VARIABLES
 ======================================= */
 var cardCounter = 0;
 var totalCards;
-var jobsArray = [];
-var searchResults = [];
 /* ====================================
 FUNCTIONS
 ======================================= */
@@ -14,17 +12,18 @@ function animateOffScreen(e, direction) {
   e = $(eid);
   console.log("e: " + e);
   var winWidth = parseInt($(window).width());
+  var elementWidth = parseInt($(e).closest(".job").width());
   var distanceToMove = winWidth;
   var options = {};
   options[direction] = distanceToMove;
   console.log(options);
-  $(e).animate(
+  $(e).closest(".job").animate(
     options,
     400,
     "easeInQuart",
     function() {
       console.log("Animation complete");
-      $(e).css("display","none");
+      $(e).closest(".job").css("display","none");
     }
   );
 }
@@ -42,9 +41,8 @@ function generateSearchResults(apiData) {
   // Did this file load?
   console.log("cards.js loaded");
 
-
   // Store jobs in an array
-  jobsArray = apiData.results;
+  var jobsArray = apiData.results;
 
   // Set global variable to number of jobs returned
   totalCards = jobsArray.length;
@@ -79,30 +77,39 @@ function generateSearchResults(apiData) {
 
   function logResults(json){
 
-        searchResults = json;
-        // console.log(searchResults);
+        var searchResults = json;
+        console.log(searchResults);
         generateSearchResults(searchResults);
 
-  }
+  };
 
 /* ====================================
 DOCUMENT.READY
 ======================================= */
 $(document).ready(function() {
 
-
-  $(document).on("click", ".theSubmitButton", function(e) {
-      e.preventDefault();
-      var query = $("#query").val().trim();
-      var radius = $("#radius").val();
-    $.ajax({
-      url: "http://api.indeed.com/ads/apisearch?publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
-      dataType: "jsonp",
-      jsonpCallback: "logResults"
-    });
+ 
 
 
+  
+$(document).on("click", ".theSubmitButton", function(e) {
+    e.preventDefault();
+    var query = $("#query").val().trim();
+    var location = $("#location").val().trim();
+    var radius = $("#radius").val();
+   
+  
+
+
+  $.ajax({
+    url: "http://api.indeed.com/ads/apisearch?publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
+    dataType: "jsonp",
+    jsonpCallback: "logResults"
   });
+
+
+});
+
 
   // Handlers for the like/dislike buttons on cards
   $(document).on("click", ".likeButton", function(e) {
@@ -153,4 +160,32 @@ $(document).ready(function() {
     animateOffScreen(id, "right");
   }); // dislike button
 
-});
+
+
+    localStorage.setItem("lastClicked", JSON.stringify(key));
+
+  // Handlers for swipe events
+    var controls = $(key).attr("id");
+    console.log(controls);
+
+    // BUG: Because this is happening *before* the clone(), the user sees the
+    // card controls "disappear" before the card is animated off screen
+    $("#"+controls+" .card-action").remove();
+    $(key).attr("style", "display: block; position: relative !important;");
+    $(key).clone().appendTo(".myJobsPage");
+
+
+    ////////////////
+
+  }); // like button
+
+  $(document).on("click", ".dislikeButton", function(e) {
+    e.preventDefault();
+    console.log("Dislike button clicked");
+    showNextCard();
+    var id = this.closest(".job");
+    id = $(id).attr("id");
+    animateOffScreen(id, "right");
+  }); // dislike button
+
+
