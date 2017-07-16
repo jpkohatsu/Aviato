@@ -22,7 +22,7 @@
      //Get email and pass
      const email = txtEmail.value;
      const pass = txtPassword.value;
-     const auth = firebase.auth();
+     const auth = firebase.auth(); 
      
      //Sign in 
      const promise = auth.signInWithEmailAndPassword(email, pass);
