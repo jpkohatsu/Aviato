@@ -4,7 +4,7 @@ var jobCardsArray = [];
 $( document ).ready(function(){
 
 
-$(".likeButton").click(function(){
+$(document).on("click", ".likebutton", function(){
 
     console.log("adding things to local storage");
     var key = $(this).closest(".job");
