@@ -59,6 +59,17 @@
         if(firebaseUser){
             console.log(firebaseUser);
             console.log("logged in");
+            
+                    
+        if (user) {
+            console.log("user exists write some stuff");
+          // User is signed in.
+          writeUserData(userId,email);
+        } else {
+          // No user is signed in.
+        }
+                    
+            
             $("#btnLogout").removeClass("hide");
         }else{
             console.log("not logged in");
@@ -127,21 +138,15 @@ function googleSignout() {
 
 
 
+var userId = firebase.auth().currentUser.uid;
 var user = firebase.auth().currentUser;
-writeUserData(user.uid,email);
-if (user) {
-    console.log("user exists write some stuff");
-  // User is signed in.
-  
-} else {
-  // No user is signed in.
-}
+
 
   // User is signed in.
  function writeUserData(userId,email) {
   firebase.database().ref(userId).set({
     
-    email: email
+    email: user.email
     
   });
 }
