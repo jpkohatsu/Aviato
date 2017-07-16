@@ -10,6 +10,13 @@
   };
   firebase.initializeApp(config);
   
+  
+  //sorage references
+  var storage = firebase.storage();
+
+// Create a storage reference from our storage service
+var storageRef = storage.ref();
+  
   // Get elements
   const txtEmail = document.getElementById("txtEmail");
   const txtPassword = document.getElementById("txtPassword");
@@ -93,9 +100,14 @@ function googleSignin() {
       var token = result.credential.accessToken;
       var user = result.user;
 		
-      console.log(token)
-      console.log(user)
-      ref.child(users).child(targetUID);
+      console.log(token);
+      console.log(user);
+      
+      //create new user reference in data storage
+      
+      storageRef.child(users).child(targetUID);
+      
+      
    }).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
