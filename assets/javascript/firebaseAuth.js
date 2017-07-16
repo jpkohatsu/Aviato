@@ -128,11 +128,11 @@ function googleSignout() {
 
 
 var user = firebase.auth().currentUser;
-
+writeUserData(user.uid,email);
 if (user) {
     console.log("user exists write some stuff");
   // User is signed in.
-  writeUserData(user.uid,email);
+  
 } else {
   // No user is signed in.
 }
