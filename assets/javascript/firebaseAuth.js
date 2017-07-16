@@ -142,6 +142,7 @@ function googleSignout() {
     
     email: email
     
+    
   });
 };
 
