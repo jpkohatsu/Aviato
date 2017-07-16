@@ -131,7 +131,7 @@ console.log(user);
 if (user) {
   // User is signed in.
   database.ref().set({
-      user: user
+      test: "something"
   });
 } else {
   // No user is signed in.
