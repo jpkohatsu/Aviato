@@ -10,6 +10,11 @@
   };
   firebase.initializeApp(config);
   
+  
+  
+  var database = firebase.database();
+
+  
   // Get elements
   const txtEmail = document.getElementById("txtEmail");
   const txtPassword = document.getElementById("txtPassword");
@@ -54,6 +59,18 @@
         if(firebaseUser){
             console.log(firebaseUser);
             console.log("logged in");
+            
+        var userId = firebase.auth().currentUser.uid;
+        var user = firebase.auth().currentUser;
+        if (user) {
+            console.log("user exists write some stuff");
+          // User is signed in.
+          writeUserData(userId,user.email);
+        } else {
+          // No user is signed in.
+        }
+                    
+            
             $("#btnLogout").removeClass("hide");
         }else{
             console.log("not logged in");
@@ -63,7 +80,7 @@
     
     
 //     //Google sign in stuff
-    var provider = new firebase.auth.GoogleAuthProvider();
+//     var provider = new firebase.auth.GoogleAuthProvider();
   
 //   firebase.auth().signInWithPopup(provider).then(function(result) {
 //   // This gives you a Google Access Token. You can use it to access the Google API.
@@ -71,6 +88,7 @@
 //   // The signed-in user info.
 //   var user = result.user;
 //   // ...
+  
 // }).catch(function(error) {
 //   // Handle Errors here.
 //   var errorCode = error.code;
@@ -82,30 +100,50 @@
 //   // ...
 // });
 
-firebase.auth().signInWithRedirect(provider);
+var provider = new firebase.auth.GoogleAuthProvider();
 
-firebase.auth().getRedirectResult().then(function(result) {
-  if (result.credential) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // ...
-  }
-  // The signed-in user info.
-  var user = result.user;
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
+function googleSignin() {
+   firebase.auth()
+   
+   .signInWithPopup(provider).then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+		
+      console.log(token);
+      console.log(user);
+      
+     
+      
+      
+      
+      
+   }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+		
+      console.log(error.code)
+      console.log(error.message)
+   });
+};
 
+function googleSignout() {
+   firebase.auth().signOut()
+	
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')  
+   });
+};
 
-
-
+  // User is signed in.
+ function writeUserData(userId,email) {
+  firebase.database().ref(userId).set({
+    
+    email: email
+    
+  });
+};
 
 
 

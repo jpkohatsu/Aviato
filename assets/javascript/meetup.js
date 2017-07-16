@@ -1,5 +1,6 @@
 var meetupCardCounter = 0;
 var totalMeetupCards;
+var meetUpCounter;
 
 // FUNCTIONS
 // ==========================================================
@@ -38,6 +39,9 @@ function generateMeetupResults(apiData) {
     ];
     output = output.join("");
     $("#meetups").append(output);
+
+
+
   }
   // Show the first card
   showNextMeetupCard();
