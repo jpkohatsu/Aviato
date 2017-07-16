@@ -128,12 +128,10 @@ function googleSignout() {
 
 
 
-if (user) {
+
   // User is signed in.
   database.ref().set({
       test: "something"
   });
-} else {
-  // No user is signed in.
-}
+
 
