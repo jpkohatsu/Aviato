@@ -11,10 +11,12 @@ $(document).ready(function() {
 
 
   // on.Clicks for navbar buttons
-  $(".search").on("click", function() {
-    $(".myJobsPage").addClass("hide hoverable");
-    $(".searchBar").removeClass("hide");
-    $(".resultCards").removeClass("hide");
+
+
+$(".search").on("click", function() {
+  $(".myJobsPage").addClass("hide hoverable");
+  $(".searchBar").removeClass("hide");
+  $(".resultCards").removeClass("hide");
 });
 
 $(".heart").on("click", function() {
@@ -23,6 +25,13 @@ $(".heart").on("click", function() {
     // addClass hide when we have buttons
     $(".myJobsPage").removeClass("hide");
 });
+
+// After submit, the Load More button appears
+$(".theSubmitButton").on("click", function() {
+  $(".loadMore").removeClass("hide");
+
+});
+
 
   // This code is for the hover over the icons //
   $(".icon").mouseenter(function() {
@@ -34,11 +43,13 @@ $(".heart").on("click", function() {
 
 
 
+
+
   // Did this file load?
   console.log("cards.js loaded");
 
   // Store jobs in an array
-  
+
   // Can we traverse the data?
 //   console.log("City: "+jobsArray[0].city);
 function generateJobsResults(apiData) {
@@ -100,6 +111,9 @@ function generateJobsResults(apiData) {
   });
 
 
+
+
+
 //  $(document).on("click", ".likeButton", function(e) {
-//   generateJobsResults(searchResults);  
+//   generateJobsResults(searchResults);
 //  });
