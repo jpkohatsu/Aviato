@@ -14,7 +14,7 @@ var queryURLBase = "http://api.meetup.com/find/events?sign=true&key=" +
 
 // This runQuery function expects two parameters:
 // (the number of articles to show and the final URL to download data from)
-function runMeetupQuery(queryURL) {
+function runQuery(queryURL) {
 
   // The AJAX function uses the queryURL and GETS the JSON data associated with it.
   // The data then gets stored in the variable called: "NYTData"
@@ -23,11 +23,11 @@ function runMeetupQuery(queryURL) {
     url: queryURL,
     method: "GET",
     dataType: "jsonp",
-    jsonpCallback: "logMeetupResults"
+    jsonpCallback: "logResults"
   });
 } // runQuery
 
-function logMeetupResults(json) {
+function logResults(json) {
   console.log(json);
 } // logResults
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
     console.log("radius input: " + radius);
 
     var queryURL = queryURLBase + "&text=" + query + "&radius=" + radius;
-    runMeetupQuery(queryURL);
+    runQuery(queryURL);
 
   });
 

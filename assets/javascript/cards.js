@@ -4,7 +4,7 @@ VARIABLES
 var cardCounter = 0;
 var totalCards;
 var jobsArray = [];
-var searchResults = [];
+var searchResults;
 /* ====================================
 FUNCTIONS
 ======================================= */
@@ -81,22 +81,24 @@ function generateSearchResults(apiData) {
         console.log(searchResults);
         generateSearchResults(searchResults);
 
-  }
+  };
 
 /* ====================================
 DOCUMENT.READY
 ======================================= */
 $(document).ready(function() {
 
+ 
 
 
-
-
+  
 $(document).on("click", ".theSubmitButton", function(e) {
     e.preventDefault();
     var query = $("#query").val().trim();
     var location = $("#location").val().trim();
     var radius = $("#radius").val();
+   
+  
 
 
   $.ajax({
@@ -104,9 +106,13 @@ $(document).on("click", ".theSubmitButton", function(e) {
     dataType: "jsonp",
     jsonpCallback: "logResults"
   });
+ 
+  
 
 });
-// function runQuery(searchTerm, city) {
+// function runQuery(searchTerm, city) { 
+
+   
 
   // Handlers for the like/dislike buttons on cards
   $(document).on("click", ".likeButton", function(e) {
@@ -115,9 +121,13 @@ $(document).on("click", ".theSubmitButton", function(e) {
     showNextCard();
 
     animateOffScreen(this, "left");
-
+    
+    
+    
+    
+    
     //////////////// local storage and moving card to myjobspage
-
+    
     console.log("adding things to local storage");
     var key = $(this).closest(".job");
     // key = $(key).attr("id");
@@ -130,8 +140,8 @@ $(document).on("click", ".theSubmitButton", function(e) {
     $("#"+controls+" .card-action").remove();
     $(key).attr("style", "display: block; position: relative !important;");
     $(key).clone().appendTo(".myJobsPage");
-
-
+    
+    
     ////////////////
 
   });
@@ -161,3 +171,5 @@ $(document).on("click", ".theSubmitButton", function(e) {
   // });
 
 });
+
+
