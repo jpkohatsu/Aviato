@@ -11,11 +11,9 @@
   firebase.initializeApp(config);
   
   
-  //sorage references
-  var storage = firebase.storage();
+  
+  var database = firebase.database();
 
-// Create a storage reference from our storage service
-var storageRef = storage.ref();
   
   // Get elements
   const txtEmail = document.getElementById("txtEmail");
@@ -103,9 +101,9 @@ function googleSignin() {
       console.log(token);
       console.log(user);
       
-      //create new user reference in data storage
+     
       
-      storageRef.child(users).child(targetUID);
+      
       
       
    }).catch(function(error) {
@@ -127,5 +125,14 @@ function googleSignout() {
    });
 }
 
+var user = firebase.auth().currentUser;
 
+if (user) {
+  // User is signed in.
+  database.ref().set({
+      user: user
+  });
+} else {
+  // No user is signed in.
+}
 
