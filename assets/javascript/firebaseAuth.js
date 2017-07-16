@@ -95,6 +95,7 @@ function googleSignin() {
 		
       console.log(token)
       console.log(user)
+      ref.child(users).child(targetUID);
    }).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
