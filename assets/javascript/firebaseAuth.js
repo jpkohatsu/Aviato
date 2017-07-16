@@ -65,7 +65,7 @@
         if (user) {
             console.log("user exists write some stuff");
           // User is signed in.
-          writeUserData(userId,email);
+          writeUserData(userId,user.email);
         } else {
           // No user is signed in.
         }
