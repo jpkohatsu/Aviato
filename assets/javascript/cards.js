@@ -10,7 +10,8 @@ FUNCTIONS
 ======================================= */
 
 function animateOffScreen(e, direction) {
-  e = $("#"+e);
+  eid = "#"+e;
+  e = $(eid);
   console.log("e: " + e);
   var winWidth = parseInt($(window).width());
   var distanceToMove = winWidth;
@@ -95,7 +96,7 @@ $(document).ready(function() {
 $(document).on("click", ".theSubmitButton", function(e) {
     e.preventDefault();
     var query = $("#query").val().trim();
-    var location = $("#location").val().trim();
+   //  var location = $("#location").val().trim();
     var radius = $("#radius").val();
    
   
@@ -120,11 +121,10 @@ $(document).on("click", ".theSubmitButton", function(e) {
     console.log("Like button clicked");
     showNextCard();
 
-    animateOffScreen(this, "left");
-    
-    
-    
-    
+   //  animateOffScreen(this, "left");
+    var id = this.closest(".job");
+    id = $(id).attr("id");
+    animateOffScreen(id, "left");
     
     //////////////// local storage and moving card to myjobspage
     
