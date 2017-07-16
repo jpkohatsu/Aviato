@@ -139,7 +139,7 @@ if (user) {
 
   // User is signed in.
  function writeUserData(userId,email) {
-  firebase.database().ref('users/' + userId).set({
+  firebase.database().ref(userId).set({
     
     email: email
     
