@@ -125,8 +125,8 @@ function googleSignout() {
    });
 }
 
-var user = firebase.auth().currentUser.providerData.profile.uid.toString();
-console.log(user);
+
+
 
 if (user) {
   // User is signed in.
