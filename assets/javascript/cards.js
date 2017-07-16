@@ -4,7 +4,7 @@ VARIABLES
 var cardCounter = 0;
 var totalCards;
 var jobsArray = [];
-var searchResults;
+var searchResults = [];
 /* ====================================
 FUNCTIONS
 ======================================= */
@@ -41,8 +41,9 @@ function generateSearchResults(apiData) {
   // Did this file load?
   console.log("cards.js loaded");
 
+
   // Store jobs in an array
-   jobsArray = apiData.results;
+  jobsArray = apiData.results;
 
   // Set global variable to number of jobs returned
   totalCards = jobsArray.length;
@@ -78,56 +79,39 @@ function generateSearchResults(apiData) {
   function logResults(json){
 
         searchResults = json;
-        console.log(searchResults);
+        // console.log(searchResults);
         generateSearchResults(searchResults);
 
-  };
+  }
 
 /* ====================================
 DOCUMENT.READY
 ======================================= */
 $(document).ready(function() {
 
- 
+  $(document).on("click", ".theSubmitButton", function(e) {
+      e.preventDefault();
+      var query = $("#query").val().trim();
+      var radius = $("#radius").val();
+    $.ajax({
+      url: "http://api.indeed.com/ads/apisearch?publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
+      dataType: "jsonp",
+      jsonpCallback: "logResults"
+    });
 
-
-  
-$(document).on("click", ".theSubmitButton", function(e) {
-    e.preventDefault();
-    var query = $("#query").val().trim();
-    var location = $("#location").val().trim();
-    var radius = $("#radius").val();
-   
-  
-
-
-  $.ajax({
-    url: "http://api.indeed.com/ads/apisearch?publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
-    dataType: "jsonp",
-    jsonpCallback: "logResults"
   });
- 
-  
-
-});
-// function runQuery(searchTerm, city) { 
-
-   
 
   // Handlers for the like/dislike buttons on cards
   $(document).on("click", ".likeButton", function(e) {
     e.preventDefault();
     console.log("Like button clicked");
     showNextCard();
+    var id = this.closest(".job");
+    id = $(id).attr("id");
+    animateOffScreen(id, "left");
 
-    animateOffScreen(this, "left");
-    
-    
-    
-    
-    
     //////////////// local storage and moving card to myjobspage
-    
+
     console.log("adding things to local storage");
     var key = $(this).closest(".job");
     // key = $(key).attr("id");
@@ -135,16 +119,20 @@ $(document).on("click", ".theSubmitButton", function(e) {
     // jobCardsArray.push(key);
     // jobCardsArray.push("foo");
     localStorage.setItem("lastClicked", JSON.stringify(key));
+
     var controls = $(key).attr("id");
     console.log(controls);
+
+    // BUG: Because this is happening *before* the clone(), the user sees the
+    // card controls "disappear" before the card is animated off screen
     $("#"+controls+" .card-action").remove();
     $(key).attr("style", "display: block; position: relative !important;");
     $(key).clone().appendTo(".myJobsPage");
-    
-    
+
+
     ////////////////
 
-  });
+  }); // like button
 
   $(document).on("click", ".dislikeButton", function(e) {
     e.preventDefault();
@@ -153,23 +141,6 @@ $(document).on("click", ".theSubmitButton", function(e) {
     var id = this.closest(".job");
     id = $(id).attr("id");
     animateOffScreen(id, "right");
-  });
-
-  // Handlers for swipe events
-  // $(".job").on("swipeleft", function(e) {
-  //   console.log("Swipe left!");
-  //   var id = $(this).attr("id");
-  //   showNextCard();
-  //   animateOffScreen(id, "right");
-  // });
-  //
-  // $(".job").on("swiperight", function(e) {
-  //   console.log("Swipe right!");
-  //   var id = $(this).attr("id");
-  //   showNextCard();
-  //   animateOffScreen(id, "left");
-  // });
+  }); // dislike button
 
 });
-
-
