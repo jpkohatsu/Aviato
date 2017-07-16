@@ -125,7 +125,7 @@ function googleSignin() {
       console.log(error.code)
       console.log(error.message)
    });
-}
+};
 
 function googleSignout() {
    firebase.auth().signOut()
@@ -135,7 +135,7 @@ function googleSignout() {
    }, function(error) {
       console.log('Signout Failed')  
    });
-}
+};
 
 
 
@@ -148,8 +148,9 @@ function googleSignout() {
     
     email: email
     
+    
   });
-}
+};
 
 
 
