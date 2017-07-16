@@ -23,14 +23,14 @@
     <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Jobiato</a>
-
     </div>
   </nav>
   </header>
   <main>
 
-      <!--Search-->
       <div class="container">
+        <!--Search-->
+
         <div class="searchBar">
           <!--Row and form containing all content-->
           <div class="row">
@@ -56,7 +56,7 @@
                   </select>
                 </div>
                 <div class="input-field col s6">
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <button class="btn black waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
@@ -64,38 +64,35 @@
             </form>
           </div>
         </div>
-      </div>
 
       <!--Tab Titles and styling-->
       <div class="row allTabs">
         <div class="col s12 m12 l12">
           <ul class="tabs">
-            <li class="tab col l3 m3 s3 tabs-fixed-width"><a class="active" href="#jobs">Jobs</a></li>
-            <li class="tab col l3 m3 s3 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
+            <li class="tab col s4 tabs-fixed-width"><a class="active" href="#jobs">Jobs</a></li>
+            <li class="tab col s4 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
             <!-- <li class="col l4 m4 s4"></li> -->
 
-            <li class="col s1 m1 l1 offset-l4 offset-s4 offset-m4"><i class="material-icons search icon black-text right">search</i></li>
-            <li class="col s1 m1 l1"><i class="fa fa-heart heart icon black-text"></i></li>
+            <li class="col pageSwitcher s4 right-align">
+              <div id="myJobsLabel">My <span>Jobs</span><i class="fa fa-heart heart icon black-text"></i></div>
+              <div id="mySearchLabel">Search<i class="fa fa-search search icon black-text"></i></div>
+            </li>
           </ul>
         </div>
       </div>
 
       <!--Jobs Tab Start-->
       <div id="jobs" class="col s12">
-
+      <h2>Results</h2>
       <!--Navbar-->
 
 
 
         <!--Result Cards-->
-        <div class="container">
           <div class="resultCards"></div>
-        </div>
 
         <!--My Jobs Page-->
-        <div class="container">
           <div class="myJobsPage hide"></div>
-        </div>
 
 
 
@@ -103,20 +100,9 @@
 
       <!--Meetups Tab-->
       <div id="meetups" class="col s12">
-        <nav class="white">
-          <div class="nav-wrapper">
-            <a href="#!" class="brand-logo center"></a>
-            <ul class="right">
-              <li><i class="material-icons icon search black-text">search</i></li>
-              <li><i class="material-icons icon heart black-text">view_module</i></li>
-            </ul>
-          </div>
-        </nav>
-
-
       </div>
 
-
+  </div> <!-- main .container -->
   </main>
 
   <!--Footer-->
