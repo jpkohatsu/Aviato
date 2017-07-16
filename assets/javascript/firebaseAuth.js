@@ -127,11 +127,24 @@ function googleSignout() {
 
 
 
+var user = firebase.auth().currentUser;
 
+if (user) {
+    console.log("user exists write some stuff");
+  // User is signed in.
+  writeUserData(user.uid,email);
+} else {
+  // No user is signed in.
+}
 
   // User is signed in.
-  database.ref().set({
-      test: "something"
+ function writeUserData(userId,email) {
+  firebase.database().ref('users/' + userId).set({
+    
+    email: email
+    
   });
+}
+
 
 
