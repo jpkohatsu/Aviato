@@ -26,6 +26,14 @@ h1{
   overflow-x: hidden;
 }
 
+.input-field input[type=search] {
+  padding-left: 0;
+}
+
+#searchSubmit {
+  /*display: none;*/
+}
+
 /* ==============================
 CARD STYLES
 ================================= */
@@ -42,25 +50,23 @@ CARD STYLES
   top: 0;
   width: 100%;
   min-width: 100%;
-  /*height: 800px;*/
-  /*position: absolute;*/
 }
-.job .card {}
+
 .job .card .card-content {
   height: 300px;
 }
-.job .card .card-content h4 {
+.job .card .card-content h4, .meetup .card .card-content h4 {
   font-size: 1rem;
   text-transform: uppercase;
 }
-.job .card .card-content p {
+.job .card .card-content p, .meetup .card .card-content p {
   margin-top: 1rem;
 }
 .job .card .likeButton i, .dislikeButton i {
   font-size: 4rem;
   transition: color .3s linear;
 }
-.job .card .likeButton i {
+.job .card .likeButton i  {
   float: right;
 }
 .job .card .likeButton i:hover {
