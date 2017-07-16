@@ -60,7 +60,8 @@
             console.log(firebaseUser);
             console.log("logged in");
             
-                    
+        var userId = firebase.auth().currentUser.uid;
+        var user = firebase.auth().currentUser;
         if (user) {
             console.log("user exists write some stuff");
           // User is signed in.
@@ -138,8 +139,7 @@ function googleSignout() {
 
 
 
-var userId = firebase.auth().currentUser.getUid();
-var user = firebase.auth().currentUser;
+
 
 
   // User is signed in.
