@@ -146,7 +146,7 @@ function googleSignout() {
  function writeUserData(userId,email) {
   firebase.database().ref(userId).set({
     
-    email: user.email
+    email: email
     
   });
 }
