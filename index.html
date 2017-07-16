@@ -67,18 +67,18 @@
       </div>
 
       <!--Tab Titles and styling-->
-      <div class="row allTabs">
-        <div class="col s12 m12 l12">
-          <ul class="tabs">
-            <li class="tab col l3 m3 s3 tabs-fixed-width"><a class="active" href="#jobs">Jobs</a></li>
-            <li class="tab col l3 m3 s3 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
-            <!-- <li class="col l4 m4 s4"></li> -->
-
-            <li class="col s1 m1 l1 offset-l4 offset-s4 offset-m4"><i class="material-icons search icon black-text right">search</i></li>
-            <li class="col s1 m1 l1"><i class="fa fa-heart heart icon black-text"></i></li>
-          </ul>
-        </div>
-
+      <div class="container">
+        <div class="row allTabs">
+          <div class="col s12 m12 l12">
+            <ul class="tabs">
+              <li class="tab col l3 m3 s3 tabs-fixed-width"><a class="active" href="#jobs">Jobs</a></li>
+              <li class="tab col l3 m3 s3 tabs-fixed-width"><a href="#meetups">Meetups</a></li>
+              <!-- <li class="col l4 m4 s4"></li> -->
+              <li class="col s1 m1 l1 offset-l4 offset-s4 offset-m4"><i class="material-icons search icon black-text right">search</i></li>
+              <li class="col s1 m1 l1"><i class="fa fa-heart heart icon black-text"></i></li>
+            </ul>
+          </div>
+        </div> <!-- allTabs -->
       </div>
 
       <!--Jobs Tab Start-->
@@ -92,19 +92,18 @@
     <div class="container">
       <input id="txtEmail" type="email" placeholder="Email">
       <input type="password" id="txtPassword" placeholder="password">
-      
+
       <button id="btnLogin" class="btn btn-action">
         Log in
       </button>
       <button id="btnSignUp" class="btn btn-secondary">
         Sign Up
       </button>
-      
+
       <button id="btnLogout" class="btn btn-action hide">
         Log out
       </button>
     </div>
-
 
 
         <!--Result Cards-->
@@ -122,8 +121,10 @@
       </div>
 
       <!--Meetups Tab-->
-      <div id="meetups" class="col s12">
-       
+      <div class="container">
+        <div id="meetups" class="col s12">
+      </div>
+
 
 
       </div>
@@ -139,7 +140,8 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <!-- jQuery UI -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
+  <!-- Moment.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <!-- Materiablize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   <!--Javascript-->
@@ -148,10 +150,10 @@
   <script type="text/javascript" src="assets/javascript/javascript.js"></script>
   <script src="./assets/javascript/meetup.js"></script>
   <script src="./assets/javascript/cards.js"></script>
-  
-  
-  
- 
+  <!--<script type="text/javascript" src="./assets/javascript/localStorage.js"></script>-->
+  <script type="text/javascript" src="assets/javascript/firebaseAuth.js"></script>
+
+
 
 </body>
 
