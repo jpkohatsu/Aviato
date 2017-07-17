@@ -63,7 +63,7 @@
         if (user) {
             console.log("user exists write some stuff");
           // User is signed in.
-          writeUserData(userId,user.email);
+          writeUserData(userId,jobsLikedArray);
           
         } else {
           // No user is signed in.
@@ -118,10 +118,10 @@ function googleSignout() {
 
 
   // User is signed in.
- function writeUserData(userId,email,myJobsArray) {
+ function writeUserData(userId,myJobsArray) {
   firebase.database().ref(userId).update({
     
-    email: email
+    myjobs: myJobsArray
     
 
     
@@ -132,6 +132,18 @@ function googleSignout() {
 //   });
 };
 
+function readUserData(userId){
+
+    var pointerToJobArrayOnFirebase = firebase.database().ref(userId);
+    pointerToJobArrayOnFirebase.on('value', function(snapshot) {
+    var tempJobsArray = snapshot.val();
+    if(tempJobsArray!== null){
+        for(var i = 0; i < tempJobsArray.length; i++){
+            $(".myJobsPage").append(tempJobsArray[i]);
+        }
+    }
+});
+};
 
 
 
