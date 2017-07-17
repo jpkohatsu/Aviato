@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
   <!--Style CSS-->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" href="./assets/images">
 
 </head>
 
@@ -22,16 +22,18 @@
   <header>
     <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Jobiato</a>
+      <a href="#" class="brand-logo center"></a>
 
     </div>
   </nav>
   </header>
   <main>
-    
-    <button onclick = "googleSignin()">Google Signin</button>
-<button onclick = "googleSignout()">Google Signout</button>
-
+  
+    <!-- Log in with Google -->
+    <div class="container" id="googleSignInPage">
+      <button class="btn waves-effect waves-light theSignInButton" onclick = "googleSignin()">Google Signin</button>
+      <button class="btn waves-effect waves-light theSignOutButton" onclick = "googleSignout()">Google Signout</button>
+    </div>
       <!--Search-->
       <div class="container">
         <div class="searchBar">
@@ -109,7 +111,6 @@
       </button>
     </div>
 
-
         <!--Result Cards-->
         <div class="container">
           <div class="resultCards"></div>
@@ -122,7 +123,6 @@
         <div class="container">
           <div class="myJobsPage hide"></div>
         </div>
-
 
 
       </div>

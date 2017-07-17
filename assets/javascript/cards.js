@@ -6,6 +6,8 @@ var totalCards;
 var jobsArray = [];
 var searchResults = [];
 var count = 0;
+//array being passed to firebase containing the jobs that the user liked and will be pulled onto their myjobs page
+var jobsLikedArray = [];
 /* ====================================
 FUNCTIONS
 ======================================= */
@@ -55,10 +57,10 @@ function generateSearchResults(apiData) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
       "<div class='job s12 md6' id='job"+i+"'>",
-      "<div class='result card' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-i)+";'>",
-      "<div class='card-image waves-effect waves-block waves-light'>",
-      "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
-      "</div>",
+      // "<div class='result card' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-i)+";'>",
+      // "<div class='card-image waves-effect waves-block waves-light'>",
+      // "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
+      // "</div>",
       "<div class='card-content'>",
       "<h4 class='grey-text text-darken-1'>"+jobsArray[i].company+"</h4>",
       "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"</span>",
@@ -98,20 +100,16 @@ $(document).ready(function() {
 $(document).on("click", ".theSubmitButton", function(e) {
     e.preventDefault();
     var query = $("#query").val().trim();
-    var location = $("#location").val().trim();
+    // We're not using location anymore...
+    // var location = $("#location").val().trim();
     var radius = $("#radius").val();
-   
-  
-
 
   $.ajax({
-    url: "http://api.indeed.com/ads/apisearch?publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
-    dataType: "jsonp",
-    jsonpCallback: "logResults"
+      url: "http://api.indeed.com/ads/apisearch?limit=25&publisher=2548872276202692&q="+query+"&l=austin%2C+tx&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=&v=2&format=json",
+      dataType: "jsonp",
+      jsonpCallback: "logResults"
+    });
   });
-
-
-});
 
 
   // Handlers for the like/dislike buttons on cards
@@ -153,9 +151,14 @@ $(document).on("click", ".theSubmitButton", function(e) {
     ////////////////
     
     
-    //////////////// firebase card adds
+    //////////////// pushing liked cards into an array to send to firebase
     var key = $(this).closest(".job");
-    ////////////////
+   
+    
+    jobsLikedArray.push(key);
+    
+    console.log("this is the myjobsfirebase array: " + jobsLikedArray);
+    //////////////// 
 
   }); // like button
 

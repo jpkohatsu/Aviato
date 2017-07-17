@@ -84,7 +84,7 @@ $(document).ready(function() {
     // These variables will be used to build the Meetup API request
     var authKey = "2f3f3e6d2a6d20647953153870106d61";
     // queryURLBase is the start of our API endpoint.
-    var queryURLBase = "http://api.meetup.com/find/events?sign=true&key=" +
+    var queryURLBase = "https://api.meetup.com/find/events?sign=true&key=" +
       authKey;
     var query = $("#query").val().trim();
     console.log("query input: " + query);

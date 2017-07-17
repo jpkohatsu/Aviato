@@ -89,3 +89,7 @@ CARD STYLES
 .tabs{
     overflow-x: hidden;
 }
+
+.brand-logo {
+  background: url("./assets/images/jobiato.jpg");
+}
