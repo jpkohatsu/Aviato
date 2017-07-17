@@ -132,24 +132,29 @@ $(document).on("click", ".theSubmitButton", function(e) {
 
     //////////////// local storage and moving card to myjobspage
 
-    console.log("adding things to local storage");
+    // console.log("adding things to local storage");
+    // var key = $(this).closest(".job");
+    // // key = $(key).attr("id");
+
+    // // jobCardsArray.push(key);
+    // // jobCardsArray.push("foo");
+    // localStorage.setItem("lastClicked", JSON.stringify(key));
+
+    // var controls = $(key).attr("id");
+    // console.log(controls);
+
+    // // BUG: Because this is happening *before* the clone(), the user sees the
+    // // card controls "disappear" before the card is animated off screen
+    // $("#"+controls+" .card-action").remove();
+    // $(key).attr("style", "display: block; position: relative !important;");
+    // $(key).clone().appendTo(".myJobsPage");
+
+
+    ////////////////
+    
+    
+    //////////////// firebase card adds
     var key = $(this).closest(".job");
-    // key = $(key).attr("id");
-
-    // jobCardsArray.push(key);
-    // jobCardsArray.push("foo");
-    localStorage.setItem("lastClicked", JSON.stringify(key));
-
-    var controls = $(key).attr("id");
-    console.log(controls);
-
-    // BUG: Because this is happening *before* the clone(), the user sees the
-    // card controls "disappear" before the card is animated off screen
-    $("#"+controls+" .card-action").remove();
-    $(key).attr("style", "display: block; position: relative !important;");
-    $(key).clone().appendTo(".myJobsPage");
-
-
     ////////////////
 
   }); // like button

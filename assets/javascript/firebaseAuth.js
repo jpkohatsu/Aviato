@@ -119,13 +119,12 @@ function googleSignout() {
 
 
   // User is signed in.
- function writeUserData(userId,email) {
+ function writeUserData(userId,email,myJobsArray) {
   firebase.database().ref(userId).set({
     
-    email: email
-    
+    email: email,
+    myjobs: myJobsArray
 
-    
     
   });
 };
