@@ -27,10 +27,10 @@ $(".heart").on("click", function() {
 });
 
 // After submit, the Load More button appears
-$(".theSubmitButton").on("click", function() {
-  $(".loadMore").removeClass("hide");
-
-});
+// $(".theSubmitButton").on("click", function() {
+//   $(".loadMore").removeClass("hide");
+//
+// });
 
 
   // This code is for the hover over the icons //
