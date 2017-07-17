@@ -125,6 +125,7 @@ function googleSignout() {
     email: email
     
     
+    
   });
 };
 
