@@ -11,7 +11,8 @@ FUNCTIONS
 ======================================= */
 
 function animateOffScreen(e, direction) {
-  e = $("#"+e);
+  eid = "#"+e;
+  e = $(eid);
   console.log("e: " + e);
   var winWidth = parseInt($(window).width());
   var distanceToMove = winWidth;
@@ -90,6 +91,7 @@ DOCUMENT.READY
 ======================================= */
 $(document).ready(function() {
 
+
   $(document).on("click", ".theSubmitButton", function(e) {
       e.preventDefault();
       var query = $("#query").val().trim();
@@ -99,6 +101,7 @@ $(document).ready(function() {
       dataType: "jsonp",
       jsonpCallback: "logResults"
     });
+
 
   });
 
@@ -110,6 +113,13 @@ $(document).ready(function() {
     var id = this.closest(".job");
     id = $(id).attr("id");
     animateOffScreen(id, "left");
+
+
+   //  animateOffScreen(this, "left");
+    var id = this.closest(".job");
+    id = $(id).attr("id");
+    animateOffScreen(id, "left");
+    
 
     //////////////// local storage and moving card to myjobspage
 
