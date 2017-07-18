@@ -157,10 +157,15 @@ $(document).on("click", ".theSubmitButton", function(e) {
     
     jobsLikedArray.push(key);
     
-    var userId = firebase.auth().currentUser.uid;
+    // var userId = firebase.auth().currentUser.uid;
     
-    writeUserData(userId, jobsLikedArray);
+    // get userId from global var in firebaseAuth.js
+    writeUserData(userId, jobsLikedArray); 
     
+    // NOTE: This probably needs to be in a callback somewhere.
+    // Calling these two functions right after the other will create
+    // unpredictable results. I think it'll make most sense to call this
+    // as a callback on writeUserData.
     readUserData(userId);
     
     console.log("this is the myjobsfirebase array: " + jobsLikedArray);
