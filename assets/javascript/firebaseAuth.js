@@ -138,6 +138,7 @@ function readUserData(userId){
     pointerToJobArrayOnFirebase.on('value', function(snapshot) {
     var tempJobsArray = snapshot.val();
     if(tempJobsArray!== null){
+        console.log("we have read the stuff");
         for(var i = 0; i < tempJobsArray.length; i++){
             $(".myJobsPage").append(tempJobsArray[i]);
         }
