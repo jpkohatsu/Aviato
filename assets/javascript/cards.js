@@ -99,6 +99,8 @@ $(document).ready(function() {
   
 $(document).on("click", ".theSubmitButton", function(e) {
     e.preventDefault();
+    cardsCounter = 0;
+    $(".resultCards").empty();
     var query = $("#query").val().trim();
     // We're not using location anymore...
     // var location = $("#location").val().trim();
