@@ -118,7 +118,7 @@ function googleSignout() {
 // User is signed in.
 function writeUserData(userId,myJobsArray) {
 
-    database().ref("users/"+userId).update({
+    database.ref("users/"+userId).update({
         myjobs: myJobsArray
     });
 
