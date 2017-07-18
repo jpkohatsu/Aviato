@@ -151,10 +151,12 @@ function readUserData(userId){
     var tempJobsArray = snapshot.val();
     
         console.log("we have read the stuff");
+        if(tempJobsArray!==null){
         for(var i = 0; i < tempJobsArray.length; i++){
             var htmlObject = $(tempJobsArray[i]);
             htmlObject.attr("style", "display: block; position: relative;");
             $(".myJobsPage").append(htmlObject);
+        }
         }
     
 });
