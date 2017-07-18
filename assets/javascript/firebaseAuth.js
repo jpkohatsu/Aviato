@@ -64,7 +64,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
         $(".container").removeClass("hide");
         $(".signInForm").addClass("hide");
-        $("#btnLogout").addClass("show");
+        $("#btnLogout").removeClass("hide");
         
         /////load myjobs cards into my jobs page
         readUserData(userId);
