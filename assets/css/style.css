@@ -20,13 +20,17 @@ h2 {
   padding-top: 11px;
 }
 
+#btnLogout {
+  float: right;
+}
+
 .allTabs {
   margin-top: 5px;
 
 }
 
 #pageToggle {
-  padding: 5px;  
+  padding: 5px;
 }
 
 #pageToggle>li {
@@ -35,7 +39,7 @@ h2 {
 }
 
 #pageToggle {
-  text-transform: uppercase; 
+  text-transform: uppercase;
 
 }
 
@@ -46,8 +50,8 @@ h2 {
 }
 
 #pageToggle:hover, #pageToggle i:hover {
-  color: #ee6e73; 
-} 
+  color: #ee6e73;
+}
 
 li.search i {
   position: relative;
