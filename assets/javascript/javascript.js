@@ -4,10 +4,13 @@ $(document).ready(function() {
 
 
 });
-  // Section 1
 
+// Functions to hide/show the searchResults and login form ////
 
-  //End Section 1
+$("#btnLogout").on("click", function() {
+  window.location.href="file:///Users/BrentG/Desktop/Aviato/index.html";
+});
+
 
 
   // on.Clicks for navbar buttons
@@ -29,6 +32,8 @@ $(".heart").on("click", function() {
     $(this).addClass("hide");
     $(".search").removeClass("hide");
 });
+
+
 
 // After submit, the Load More button appears
 // $(".theSubmitButton").on("click", function() {

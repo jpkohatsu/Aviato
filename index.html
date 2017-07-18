@@ -41,19 +41,20 @@
         Sign Up
       </button>
 
-      <button id="btnLogout" class="btn btn-action hide">
-        Log out
-      </button>
+
+
     <!-- Log in with Google -->
 
       <button class="btn waves-effect waves-light theSignInButton" onclick = "googleSignin()">Google Signin</button>
       <button class="btn waves-effect waves-light theSignOutButton" onclick = "googleSignout()">Google Signout</button>
-    </div> <!-- signInForm -->
+      </div> <!-- signInForm -->
 
 
       <!--Search-->
-      <div class="container">
-
+      <div class="container hide">
+        <button id="btnLogout" class="btn btn-action">
+          Log out
+        </button>
         <div class="searchBar">
           <h2>Search for jobs and events</h2>
           <!--Row and form containing all content-->
@@ -91,7 +92,7 @@
       </div>
 
       <!--Tab Titles and styling-->
-      <div class="container">
+      <div class="container hide">
         <div class="row allTabs">
           <div class="col s12">
             <ul class="tabs">
