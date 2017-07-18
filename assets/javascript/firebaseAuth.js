@@ -26,13 +26,13 @@ const btnLogout = document.getElementById("btnLogout");
 
 //add logn event
 btnLogin.addEventListener("click", e => {
-
+    
     //Get email and pass
     const email = txtEmail.value;
     const pass = txtPassword.value;
-    const auth = firebase.auth();
-
-    //Sign in
+    const auth = firebase.auth(); 
+     
+    //Sign in 
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
 
@@ -43,29 +43,25 @@ btnSignUp.addEventListener("click", e=> {
  const email = txtEmail.value;
  const pass = txtPassword.value;
  const auth = firebase.auth();
-
- //Sign in
+ 
+ //Sign in 
  const promise = auth.createUserWithEmailAndPassword(email, pass);
  promise.catch(e => console.log(e.message));
-
+ 
 });
 
 $("#btnLogout").on("click", function() {
-  firebase.auth().signOut();
+  firebase.auth().signOut(); 
 });
+  
 
-
-
+  
 //add a realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
         console.log(firebaseUser);
         console.log("logged in");
-        $(".container").removeClass("hide");
-        $(".signInForm").addClass("hide");
-        $("#btnLogout").addClass("show");
-
-
+        
     userId = firebase.auth().currentUser.uid;
     var user = firebase.auth().currentUser;
     if (user) {
@@ -78,14 +74,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     } else {
       // No user is signed in.
     }
-
+                
     $("#btnLogout").removeClass("hide");
-
+    
     }else{
         console.log("not logged in");
-
-        // $(".signInForm").addClass("show");
-        // $(".container").addClass("hide");
+        $("#btnLogout").addClass("hide");
     }
 });
 
@@ -96,11 +90,11 @@ function googleSignin() {
    firebase.auth().signInWithPopup(provider).then(function(result) {
       var token = result.credential.accessToken;
       var user = result.user;
-
+		
       console.log(token);
       console.log(user);
-
-
+      
+      
    }).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
