@@ -153,10 +153,11 @@ $(document).on("click", ".theSubmitButton", function(e) {
     
     //////////////// pushing liked cards into an array to send to firebase
     var $key = $(this).closest(".job");
-    console.log("This is the key:");
-    console.log($key);
-    jobsLikedArray.push($key);
-    jobsLikedString = JSON.stringify(jobsLikedArray);
+    var str = $key.prop('outerHTML');
+    console.log("This is the key stringified: ");
+    console.log(str);
+    jobsLikedArray.push(str);
+    
     
     // var userId = firebase.auth().currentUser.uid;
     
@@ -164,7 +165,7 @@ $(document).on("click", ".theSubmitButton", function(e) {
     // writeUserData(userId, jobsLikedArray); 
     
     database.ref("users/"+userId).update({
-        myjobs: jobsLikedString
+        myjobs: jobsLikedArray
     });
     
     // NOTE: This probably needs to be in a callback somewhere.
@@ -173,7 +174,7 @@ $(document).on("click", ".theSubmitButton", function(e) {
     // as a callback on writeUserData.
     // readUserData(userId);
     
-    console.log("this is the myjobsfirebase array: " + jobsLikedString);
+    console.log("this is the myjobsfirebase array: " + jobsLikedArray);
     //////////////// 
 
   }); // like button
