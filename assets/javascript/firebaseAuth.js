@@ -61,7 +61,16 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
         console.log(firebaseUser);
         console.log("logged in");
+
+        $(".container").removeClass("hide");
+        $(".signInForm").addClass("hide");
+        $("#btnLogout").addClass("show");
         
+        /////load myjobs cards into my jobs page
+        readUserData(userId);
+
+
+
     userId = firebase.auth().currentUser.uid;
     var user = firebase.auth().currentUser;
     if (user) {
@@ -74,9 +83,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     } else {
       // No user is signed in.
     }
-                
-    $("#btnLogout").removeClass("hide");
-    
+
+
+
+    // $("#btnLogout").removeClass("hide");
+
+
     }else{
         console.log("not logged in");
         $("#btnLogout").addClass("hide");
