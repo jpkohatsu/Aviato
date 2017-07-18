@@ -76,8 +76,13 @@ CARD STYLES
   font-size: 4rem;
   transition: color .3s linear;
 }
+.job .card .dislikeButton i {
+  color: #f44336;
+}
+
 .job .card .likeButton i  {
   float: right;
+  color: #4caf50;
 }
 .job .card .likeButton i:hover {
   color: #388e3c !important;
@@ -90,6 +95,3 @@ CARD STYLES
     overflow-x: hidden;
 }
 
-.brand-logo {
-  background-image: url("assets/images/jobiato.jpg");
-}
