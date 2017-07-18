@@ -15,14 +15,14 @@
 
   <!--Style CSS-->
   <link rel="stylesheet" href="assets/css/style.css">
-
+  
 </head>
 
 <body>
   <header>
     <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Jobiato</a>
+      <a href="#" class="brand-logo center" src="./assets/images/jobiato.jpg"></a>
       
     </div>
   </nav>
@@ -74,14 +74,14 @@
       <!--Tab Titles and styling-->
       <div class="container">
         <div class="row allTabs">
-          <div class="col s12 m12 l12">
+          <div class="col s12">
             <ul class="tabs">
-              <li class="tab col l3 m3 s3 "><a class="active" href="#jobs">Jobs</a></li>
-              <li class="tab col l3 m3 s3 "><a href="#meetups">Meetups</a><span id="meetUpNumbers">1</span></li>
-              <!-- <li class="col l4 m4 s4"></li> -->
-
-              <li class="col s1 m1 l1 offset-l3 offset-s3 offset-m3"><i class="material-icons search icon black-text">search</i></li>
-              <li class="col s2 m2 l2"><i class="fa fa-heart heart icon black-text "><span id="myJobsCounter"></span></i></li>
+              <li class="tab col s3 "><a class="active" href="#jobs">Jobs</a></li>
+              <li class="tab col s3 "><a href="#meetups">Meetups</a><span id="meetUpNumbers">1</span></li>
+              <span id="pageToggle">
+                <li class="col s6 right-align hide search">Search <i class="material-icons ">search</i></li>
+                <li class="col s6 right-align heart">My Jobs <i class="fa fa-heart  icon"><span id="myJobsCounter"></span></i></li>
+              </span>
             </ul>
           </div>
         </div> <!-- allTabs -->

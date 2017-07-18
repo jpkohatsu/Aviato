@@ -18,6 +18,35 @@ h1{
 
 }
 
+#pageToggle {
+  padding: 5px;  
+}
+
+#pageToggle>li {
+  padding: 0 0 0 .75rem;
+  font-size: 1rem;
+}
+
+#pageToggle {
+  text-transform: uppercase; 
+
+}
+
+#pageToggle, #pageToggle i {
+  cursor: pointer;
+  color: #37474f !important;
+  padding-right: 0 !important;
+}
+
+#pageToggle:hover, #pageToggle i:hover {
+  color: #ee6e73; 
+} 
+
+li.search i {
+  position: relative;
+  bottom: -7px;
+}
+
 .heart {
   font-size: 20px;
 }

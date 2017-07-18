@@ -17,6 +17,8 @@ $(".search").on("click", function() {
   $(".myJobsPage").addClass("hide hoverable");
   $(".searchBar").removeClass("hide");
   $(".resultCards").removeClass("hide");
+  $(this).addClass("hide");
+  $(".heart").removeClass("hide");
 });
 
 $(".heart").on("click", function() {
@@ -24,6 +26,8 @@ $(".heart").on("click", function() {
     $(".resultCards").addClass("hide");
     // addClass hide when we have buttons
     $(".myJobsPage").removeClass("hide");
+    $(this).addClass("hide");
+    $(".search").removeClass("hide");
 });
 
 // After submit, the Load More button appears
@@ -33,25 +37,8 @@ $(".theSubmitButton").on("click", function() {
 });
 
 
-  // This code is for the hover over the icons //
-  $(".icon").mouseenter(function() {
-    $(this).addClass("red lighten-4");
-  }).mouseleave(function() {
-    $(this).removeClass("red lighten-4");
-}
-);
 
 
-
-
-
-  // Did this file load?
-  console.log("cards.js loaded");
-
-  // Store jobs in an array
-
-  // Can we traverse the data?
-//   console.log("City: "+jobsArray[0].city);
 function generateJobsResults(apiData) {
   // Start list, as required by jTinder
   var $resultsList = $("<ul>");
