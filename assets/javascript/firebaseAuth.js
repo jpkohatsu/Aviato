@@ -129,11 +129,14 @@ function readUserData(userId){
 
     var pointerToJobArrayOnFirebase = firebase.database().ref("users/"+userId + "/myjobs");
     pointerToJobArrayOnFirebase.on('value', function(snapshot) {
+        // clear anything currently in MyJobs page
+        $(".myJobsPage").html("");
     var tempJobsArray = snapshot.val();
     
         console.log("we have read the stuff");
         for(var i = 0; i < tempJobsArray.length; i++){
             var htmlObject = $(tempJobsArray[i]);
+            htmlObject.attr("style", "display: block; position: relative;");
             $(".myJobsPage").append(htmlObject);
         }
     
