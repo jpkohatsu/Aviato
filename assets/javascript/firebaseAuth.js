@@ -124,10 +124,11 @@ function googleSignout() {
 
    .then(function() {
       console.log('Signout Succesfull');
-      $("#btnLogout").addClass("hide");
+      
    }, function(error) {
       console.log('Signout Failed');
    });
+   $("#btnLogout").addClass("hide");
 };
 
 
