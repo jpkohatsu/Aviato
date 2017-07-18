@@ -6,6 +6,10 @@ h1{
     color: red;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 .icon {
   padding-left: 10px;
   padding-right: 10px;
@@ -57,6 +61,14 @@ li.search i {
 
 .input-field input[type=search] {
   padding-left: 0;
+}
+
+.signInForm {
+  margin-bottom: 3rem;
+}
+
+.searchBar {
+  /*margin-top: 3rem;*/
 }
 
 #searchSubmit {

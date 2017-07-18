@@ -21,19 +21,13 @@ function generateMeetupResults(apiData) {
     var meetupDate = moment.unix(toEpoch).format("MM/DD/YYYY h:mma");
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='meetup s12 md6' id='meetup"+i+"'>",
-      "<div class='result card' style='z-index: "+(5000-i)+";'>",
-      "<div class='card-image waves-effect waves-block waves-light'>",
-      "</div>",
+      "<div class='meetup' id='meetup"+i+"'>",
+      "<div class='result card' style='z-index: "+(10000-i)+";'>",
       "<div class='card-content'>",
       "<h4 class='grey-text text-darken-1'>"+meetupDate+"</h4>",
       "<span class='card-title activator grey-text text-darken-4'>"+meetupArray[i].name+"</span>",
       // "<p>"+meetupArray[i].snippet+"</p>",
       "<p><a href='"+meetupArray[i].link+"' target='_blank'>View event details</a></p>",
-      "</div>",
-      "<div class='card-action'>",
-      // "<a class='dislikeButton' href='#'><i class='fa fa-times-circle-o red-text' aria-hidden='true'></i></a>",
-      // "<a class='likeButton' href='#'><i class='fa fa-check-circle-o  green-text' aria-hidden='true'></i></a></div>",
       "</div>",
       "</div>"
     ];

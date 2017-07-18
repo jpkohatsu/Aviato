@@ -88,10 +88,6 @@ function googleSignin() {
       console.log(token);
       console.log(user);
       
-     
-      
-      
-      
       
    }).catch(function(error) {
       var errorCode = error.code;

@@ -29,14 +29,33 @@
   </header>
   <main>
   
+    <!--Login-->
+    <div class="container signInForm" id="googleSignInPage">
+      <h2>Log in</h2>
+      <input id="txtEmail" type="email" placeholder="Email">
+      <input type="password" id="txtPassword" placeholder="password">
+      <button id="btnLogin" class="btn btn-action">
+        Log in
+      </button>
+      <button id="btnSignUp" class="btn btn-secondary">
+        Sign Up
+      </button>
+
+      <button id="btnLogout" class="btn btn-action hide">
+        Log out
+      </button>
     <!-- Log in with Google -->
-    <div class="container" id="googleSignInPage">
+    
       <button class="btn waves-effect waves-light theSignInButton" onclick = "googleSignin()">Google Signin</button>
       <button class="btn waves-effect waves-light theSignOutButton" onclick = "googleSignout()">Google Signout</button>
-    </div>
+    </div> <!-- signInForm -->
+
+    
       <!--Search-->
       <div class="container">
+        
         <div class="searchBar">
+          <h2>Search for jobs and events</h2>
           <!--Row and form containing all content-->
           <div class="row">
             <form action="#" id="searchForm" class="col s12">
@@ -88,28 +107,13 @@
       </div>
 
       <!--Jobs Tab Start-->
-      <div id="jobs" class="col s12">
+      <div id="jobs">
 
       <!--Navbar-->
 
 
 
-        <!--Login-->
-    <div class="container">
-      <input id="txtEmail" type="email" placeholder="Email">
-      <input type="password" id="txtPassword" placeholder="password">
-
-      <button id="btnLogin" class="btn btn-action">
-        Log in
-      </button>
-      <button id="btnSignUp" class="btn btn-secondary">
-        Sign Up
-      </button>
-
-      <button id="btnLogout" class="btn btn-action hide">
-        Log out
-      </button>
-    </div>
+     
 
         <!--Result Cards-->
         <div class="container">
@@ -127,10 +131,10 @@
 
       </div>
 
-      <!--Meetups Tab-->
-      <div class="container">
-        <div id="meetups" class="col s12">
-      </div>
+        <!--Meetups Tab-->
+        <div class="container">
+          <div id="meetups"></div>
+        </div>
 
 
 
