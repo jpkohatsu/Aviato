@@ -11,7 +11,7 @@ $("#btnLogout").on("click", function() {
   // window.location.href="file:///Users/BrentG/Desktop/Aviato/index.html";
   $(".container").addClass("hide");
         $(".signInForm").removeClass("hide");
-        $("#btnLogout").removeClass("hide");
+        $("#btnLogout").addClass("hide");
 });
 
 
