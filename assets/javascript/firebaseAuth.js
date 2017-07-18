@@ -122,12 +122,8 @@ function writeUserData(userId,myJobsArray) {
         myjobs: myJobsArray
     });
 
-});
-  
-//   firebase.database().ref(userId).update({
-//       myjobs: myJobsArray
-//   });
-};
+}
+
 
 function readUserData(userId){
 
