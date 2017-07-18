@@ -152,10 +152,10 @@ $(document).on("click", ".theSubmitButton", function(e) {
     
     
     //////////////// pushing liked cards into an array to send to firebase
-    var key = $(this).closest(".job");
+    var $key = $(this).closest(".job");
     console.log("This is the key:");
-    console.log(key);
-    jobsLikedArray.push(key);
+    console.log($key);
+    jobsLikedArray.push($key);
     jobsLikedString = JSON.stringify(jobsLikedArray);
     
     // var userId = firebase.auth().currentUser.uid;
