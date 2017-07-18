@@ -163,7 +163,7 @@ $(document).on("click", ".theSubmitButton", function(e) {
     // get userId from global var in firebaseAuth.js
     // writeUserData(userId, jobsLikedArray); 
     
-    database.ref("users/"+userId).update({
+    database.ref("users/"+userId).push({
         myjobs: jobsLikedString
     });
     
