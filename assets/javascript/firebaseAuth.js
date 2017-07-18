@@ -68,7 +68,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         console.log("user exists write some stuff");
       // User is signed in.
     //   writeUserData(userId,user.email);
-      database.ref(userId).set({
+      database.ref("users/"+userId).set({
         email: user.email
       });
     } else {
