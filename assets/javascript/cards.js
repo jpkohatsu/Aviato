@@ -156,6 +156,7 @@ $(document).on("click", ".theSubmitButton", function(e) {
    
     
     jobsLikedArray.push(key);
+    jobsLikedString = JSON.stringify(jobsLikedArray);
     
     // var userId = firebase.auth().currentUser.uid;
     
@@ -163,16 +164,16 @@ $(document).on("click", ".theSubmitButton", function(e) {
     // writeUserData(userId, jobsLikedArray); 
     
     database.ref("users/"+userId).update({
-        myjobs: jobsLikedArray
+        myjobs: jobsLikedString
     });
     
     // NOTE: This probably needs to be in a callback somewhere.
     // Calling these two functions right after the other will create
     // unpredictable results. I think it'll make most sense to call this
     // as a callback on writeUserData.
-    readUserData(userId);
+    // readUserData(userId);
     
-    console.log("this is the myjobsfirebase array: " + jobsLikedArray);
+    console.log("this is the myjobsfirebase array: " + jobsLikedString);
     //////////////// 
 
   }); // like button
