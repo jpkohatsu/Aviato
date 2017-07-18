@@ -118,7 +118,7 @@ function googleSignout() {
 // User is signed in.
 function writeUserData(userId,myJobsArray) {
 
-    firebase.database().ref(userId).update({
+    database().ref(userId).update({
 
     myjobs: myJobsArray
 
@@ -131,7 +131,7 @@ function writeUserData(userId,myJobsArray) {
 
 function readUserData(userId){
 
-    var pointerToJobArrayOnFirebase = firebase.database().ref(userId);
+    var pointerToJobArrayOnFirebase = firebase.database().ref("users/"+userId);
     pointerToJobArrayOnFirebase.on('value', function(snapshot) {
     var tempJobsArray = snapshot.val();
     if(tempJobsArray!== null){
