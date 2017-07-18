@@ -1,9 +1,16 @@
+nav, footer.page-footer {
+  background-color: #1770aa;
+}
 * {
   box-sizing: border-box;
 }
 
 h1{
     color: red;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 .icon {
@@ -13,9 +20,42 @@ h1{
   padding-top: 11px;
 }
 
+#btnLogout {
+  float: right;
+}
+
 .allTabs {
   margin-top: 5px;
 
+}
+
+#pageToggle {
+  padding: 5px;
+}
+
+#pageToggle>li {
+  padding: 0 0 0 .75rem;
+  font-size: 1rem;
+}
+
+#pageToggle {
+  text-transform: uppercase;
+
+}
+
+#pageToggle, #pageToggle i {
+  cursor: pointer;
+  color: #37474f !important;
+  padding-right: 0 !important;
+}
+
+#pageToggle:hover, #pageToggle i:hover {
+  color: #ee6e73;
+}
+
+li.search i {
+  position: relative;
+  bottom: -7px;
 }
 
 .heart {
@@ -28,6 +68,14 @@ h1{
 
 .input-field input[type=search] {
   padding-left: 0;
+}
+
+.signInForm {
+  margin-bottom: 3rem;
+}
+
+.searchBar {
+  /*margin-top: 3rem;*/
 }
 
 #searchSubmit {
@@ -76,8 +124,13 @@ CARD STYLES
   font-size: 4rem;
   transition: color .3s linear;
 }
+.job .card .dislikeButton i {
+  color: #f44336;
+}
+
 .job .card .likeButton i  {
   float: right;
+  color: #4caf50;
 }
 .job .card .likeButton i:hover {
   color: #388e3c !important;
@@ -88,4 +141,10 @@ CARD STYLES
 
 .tabs{
     overflow-x: hidden;
+}
+
+#jobiatoLogo {
+  height: 65px;
+  width: 190px;
+  border-radius: 5px;
 }
