@@ -127,15 +127,16 @@ function writeUserData(userId,myJobsArray) {
 
 function readUserData(userId){
 
-    var pointerToJobArrayOnFirebase = firebase.database().ref("users/"+userId);
+    var pointerToJobArrayOnFirebase = firebase.database().ref("users/"+userId + "/myjobs");
     pointerToJobArrayOnFirebase.on('value', function(snapshot) {
     var tempJobsArray = snapshot.val();
-    if(tempJobsArray!== null){
+    
         console.log("we have read the stuff");
         for(var i = 0; i < tempJobsArray.length; i++){
-            $(".myJobsPage").append(tempJobsArray[i]);
+            var htmlObject = $(tempJobsArray[i]);
+            $(".myJobsPage").append(htmlObject);
         }
-    }
+    
 });
 };
 

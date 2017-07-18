@@ -168,6 +168,8 @@ $(document).on("click", ".theSubmitButton", function(e) {
         myjobs: jobsLikedArray
     });
     
+    readUserData(userId);
+    
     // NOTE: This probably needs to be in a callback somewhere.
     // Calling these two functions right after the other will create
     // unpredictable results. I think it'll make most sense to call this
