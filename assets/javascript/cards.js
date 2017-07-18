@@ -160,7 +160,11 @@ $(document).on("click", ".theSubmitButton", function(e) {
     // var userId = firebase.auth().currentUser.uid;
     
     // get userId from global var in firebaseAuth.js
-    writeUserData(userId, jobsLikedArray); 
+    // writeUserData(userId, jobsLikedArray); 
+    
+    database.ref("users/"+userId).update({
+        myjobs: jobsLikedArray
+    });
     
     // NOTE: This probably needs to be in a callback somewhere.
     // Calling these two functions right after the other will create
