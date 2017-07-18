@@ -68,7 +68,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         console.log("user exists write some stuff");
       // User is signed in.
     //   writeUserData(userId,user.email);
-      database.ref("users/"+userId).update({
+      database.ref("users/"+userId).set({
         email: user.email
       });
     } else {
@@ -118,11 +118,15 @@ function googleSignout() {
 // User is signed in.
 function writeUserData(userId,myJobsArray) {
 
-    // database.ref("users/"+userId).update({
-    //     myjobs: myJobsArray
-    // });
+    database().ref("users/"+userId).update({
+        myjobs: myJobsArray
+    });
 
 }
+
+// Function to hide and unhide the content outside of the login page
+
+
 
 
 function readUserData(userId){
@@ -138,6 +142,7 @@ function readUserData(userId){
     }
 });
 };
+
 
 
 

@@ -1,3 +1,7 @@
+nav, footer.page-footer {
+  background-color: #1770aa;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +23,12 @@ h2 {
 
 .allTabs {
   margin-top: 5px;
+}
 
+#jobiatoLogo {
+  height: 65px;
+  width: 190px;
+  border-radius: 5px;
 }
 
 #pageToggle {

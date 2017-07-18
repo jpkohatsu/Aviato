@@ -56,7 +56,7 @@ function generateSearchResults(apiData) {
   for (var i=0; i < jobsArray.length; i++) {
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='job' id='job"+i+"'>",
+      "<div class='job s12 md6' id='job"+i+"'>",
       "<div class='result card' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-i)+";'>",
       // "<div class='card-image waves-effect waves-block waves-light'>",
       // "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
@@ -68,8 +68,8 @@ function generateSearchResults(apiData) {
       "<p><a href='"+jobsArray[i].url+"' target='_blank'>View full post</a></p>",
       "</div>",
       "<div class='card-action'>",
-      "<a class='dislikeButton text-red' href='#'><i class='material-icons'>cancel</i></a>",
-      "<a class='likeButton text-green' href='#'><i class='material-icons'>check_circle</i></a></div>",
+      "<a class='dislikeButton' href='#'><i class='material-icons'>cancel</i></a>",
+      "<a class='likeButton' href='#'><i class='material-icons'>check_circle</i></a></div>",
       "</div>",
       "</div>"
     ];
@@ -151,29 +151,21 @@ $(document).on("click", ".theSubmitButton", function(e) {
     ////////////////
     
     
-    //////////////// pushing liked cards into an array to send to firebase
+    //////////////// pushing liked cards into an array to send to firebase as a string
     var $key = $(this).closest(".job");
-    console.log("This is the key:");
-    console.log($key);
-    jobsLikedArray.push($key);
-    jobsLikedString = JSON.stringify(jobsLikedArray);
+    var str = $key.prop('outerHTML');
+    console.log(str);
+   
+   ////////////////// push stringified div into array 
+    jobsLikedArray.push(str);
     
-    // var userId = firebase.auth().currentUser.uid;
+    var userId = firebase.auth().currentUser.uid;
+    //////////////// write the array to firebase in the user's data section under their id
+    writeUserData(userId, jobsLikedArray);
     
-    // get userId from global var in firebaseAuth.js
-    // writeUserData(userId, jobsLikedArray); 
+    readUserData(userId);
     
-    database.ref("users/"+userId).update({
-        myjobs: jobsLikedString
-    });
-    
-    // NOTE: This probably needs to be in a callback somewhere.
-    // Calling these two functions right after the other will create
-    // unpredictable results. I think it'll make most sense to call this
-    // as a callback on writeUserData.
-    // readUserData(userId);
-    
-    console.log("this is the myjobsfirebase array: " + jobsLikedString);
+    console.log("this is the myjobsfirebase array: " + jobsLikedArray);
     //////////////// 
 
   }); // like button
