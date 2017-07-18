@@ -51,7 +51,8 @@ btnSignUp.addEventListener("click", e=> {
 });
 
 $("#btnLogout").on("click", function() {
-  firebase.auth().signOut(); 
+  firebase.auth().signOut();
+  googleSignout();
 });
   
 
@@ -106,6 +107,8 @@ function googleSignin() {
       console.log(token);
       console.log(user);
       
+      $("#btnLogout").removeClass("hide");
+      
       
    }).catch(function(error) {
       var errorCode = error.code;
@@ -120,9 +123,10 @@ function googleSignout() {
    firebase.auth().signOut()
 
    .then(function() {
-      console.log('Signout Succesfull')
+      console.log('Signout Succesfull');
+      $("#btnLogout").addClass("hide");
    }, function(error) {
-      console.log('Signout Failed')
+      console.log('Signout Failed');
    });
 };
 
