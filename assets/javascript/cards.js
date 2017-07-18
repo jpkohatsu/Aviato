@@ -157,6 +157,8 @@ $(document).on("click", ".theSubmitButton", function(e) {
     
     jobsLikedArray.push(key);
     
+    writeUserData(firebase.auth().currentUser.uid, jobsLikedArray);
+    
     readUserData(firebase.auth().currentUser.uid);
     
     console.log("this is the myjobsfirebase array: " + jobsLikedArray);
