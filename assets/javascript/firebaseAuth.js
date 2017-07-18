@@ -57,20 +57,23 @@
         if(firebaseUser){
             console.log(firebaseUser);
             console.log("logged in");
-            
-        var userId = firebase.auth().currentUser.uid;
-        var user = firebase.auth().currentUser;
-        if (user) {
-            console.log("user exists write some stuff");
-          // User is signed in.
-          writeUserData(userId,jobsLikedArray);
-          
-        } else {
-          // No user is signed in.
-        }
-                    
-            
+            $("#btnLogin").addClass("hide");    
+            $(".theSignInButton").addClass("hide");
             $("#btnLogout").removeClass("hide");
+            
+            var userId = firebase.auth().currentUser.uid;
+            var user = firebase.auth().currentUser;
+            if (user) {
+                console.log("user exists write some stuff");
+              // User is signed in.
+              writeUserData(userId,jobsLikedArray);
+              
+            } else {
+              // No user is signed in.
+              $("#btnLogout").addClass("hide"); 
+              $(".theSignOutButton").addClass("hide");
+            }
+           
         }else{
             console.log("not logged in");
             $("#btnLogout").addClass("hide");
