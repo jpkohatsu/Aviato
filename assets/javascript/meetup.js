@@ -73,8 +73,10 @@ function logMeetupResults(json) {
 
 $(document).ready(function() {
 
-  $(document).on("click", ".theSubmitButton", function(e) {
+$(document).on("click", ".theSubmitButton", function(e) {
     e.preventDefault();
+    cardCounter = 0;
+    $("#meetups").empty();
     // These variables will be used to build the Meetup API request
     var authKey = "2f3f3e6d2a6d20647953153870106d61";
     // queryURLBase is the start of our API endpoint.
