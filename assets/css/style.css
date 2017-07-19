@@ -144,7 +144,15 @@ CARD STYLES
 }
 
 #jobiatoLogo {
-  height: 65px;
-  width: 190px;
+  height: auto;
+  width: 140px;
   border-radius: 5px;
+  padding: 12px 15px 15px 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  #jobiatoLogo {
+    width: 130px;
+    padding: 8px;
+  }
 }
