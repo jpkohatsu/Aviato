@@ -155,6 +155,7 @@ $(document).on("click", ".theSubmitButton", function(e) {
     
     //////////////// pushing liked cards into an array to send to firebase
     var $key = $(this).closest(".job");
+    // $key.find(".card-action").addClass("removeAction");
     var str = $key.prop('outerHTML');
     console.log("This is the key stringified: ");
     console.log(str);
