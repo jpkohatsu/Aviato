@@ -45,48 +45,102 @@ function showNextCard() {
 function generateSearchResults(apiData) {
   // Did this file load?
   console.log("cards.js loaded");
+  
 
   // Store jobs in an array
   var jobsArray = apiData.results;
+  console.log("jobsArray=================");
+  console.log(jobsArray[0].company);
 
   // Set global variable to number of jobs returned
   totalCards = jobsArray.length;
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
-    // To make it more huamn readable, save large block of HTML as an array
-    var output = [
-      "<div class='job' id='job"+i+"'>",
-      "<div class='result card' id='"+jobsArray[i].jobkey+"' style='z-index: "+(5000-i)+";'>",
-      // "<div class='card-image waves-effect waves-block waves-light'>",
-      // "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
-      // "</div>",
-      "<div class='card-content'>",
-      "<h4 class='grey-text text-darken-1'>"+jobsArray[i].company+"</h4>",
-      "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"</span>",
-      "<p>"+jobsArray[i].snippet+"</p>",
-      "<p><a href='"+jobsArray[i].url+"' target='_blank'>View full post</a></p>",
-      "</div>",
-      "<div class='card-action'>",
-      "<a class='dislikeButton text-red' href='#'><i class='material-icons'>cancel</i></a>",
-      "<a class='likeButton text-green' href='#'><i class='material-icons'>check_circle</i></a></div>",
-      "</div>",
-      "</div>"
-    ];
-    output = output.join("");
-    $(".resultCards").append(output);
-  }
-  // Show the first card
-  showNextCard();
+    
+    // format company name
+    var company = jobsArray[i].company.trim();
+    var jobtitle = jobsArray[i].jobtitle;
+    var snippet = jobsArray[i].snippet;
+    var url = jobsArray[i].url;
+    // define logoPath
+    var logoPath = "";
+    
+
+    $.ajax({
+      url: "https://autocomplete.clearbit.com/v1/companies/suggest?query=" +company,
+      format: "json",
+      async: false
+    })
+    .done(function(data) {
+      var output = "";
+      console.log("DONE! We're on i="+i);
+      console.log(data);
+        
+        if (jQuery.isEmptyObject(data)) {
+          // do nothing
+        } else {
+          logoPath = data[0].logo;
+          console.log("Logo path: "+logoPath);
+        }
+        console.log("Company name: "+company);
+        console.log("Logo path outside loop: "+logoPath);
+        // To make it more huamn readable, save large block of HTML as an array
+        
+        output = [
+          "<div class='job' id='job"+i+"'>",
+          "<div class='result card' style='z-index: "+(5000-i)+";'>",
+          // "<div class='card-image waves-effect waves-block waves-light'>",
+          // "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
+          // "</div>",
+          "<div class='card-content'>",
+          "<img src='"+logoPath+"'>",
+          "<h4 class='grey-text text-darken-1'>"+company+"</h4>",
+          "<span class='card-title activator grey-text text-darken-4'>"+jobtitle+"</span>",
+          "<p>"+snippet+"</p>",
+          "<p><a href='"+url+"' target='_blank'>View full post</a></p>",
+          "</div>",
+          "<div class='card-action'>",
+          "<a class='dislikeButton text-red' href='#'><i class='material-icons'>cancel</i></a>",
+          "<a class='likeButton text-green' href='#'><i class='material-icons'>check_circle</i></a></div>",
+          "</div>",
+          "</div>"
+        ];
+        output = output.join("");
+        console.log("OUTPUT VARIABLE");
+        console.log(output);
+        // $(".resultCards").append(output);
+        var domObject = $(output);
+        $(".resultCards").append(domObject);
+
+    });
+    
+  
+  } // end for loop
+  
+   // Show the first card
+    showNextCard();
+ 
 }
 
-  function logResults(json){
+function logResults(json){
 
-        var searchResults = json;
-        console.log(searchResults);
-        generateSearchResults(searchResults);
+      var searchResults = json;
+      console.log(searchResults);
+      generateSearchResults(searchResults);
 
-  };
+};
+  
+function logoResult(json) {
+  var logoPath = "";
+  if (json === []) {
+     // default value
+  } else {
+    logoPath = json.logo;
+    console.log("Logo path: "+logoPath);
+  }
+}
+  
 
 /* ====================================
 DOCUMENT.READY
@@ -125,9 +179,9 @@ $(document).on("click", ".theSubmitButton", function(e) {
 
 
    //  animateOffScreen(this, "left");
-    var id = this.closest(".job");
-    id = $(id).attr("id");
-    animateOffScreen(id, "left");
+    // var id = this.closest(".job");
+    // id = $(id).attr("id");
+    // animateOffScreen(id, "left");
     
 
     //////////////// local storage and moving card to myjobspage
@@ -155,6 +209,7 @@ $(document).on("click", ".theSubmitButton", function(e) {
     
     //////////////// pushing liked cards into an array to send to firebase
     var $key = $(this).closest(".job");
+    // $key.find(".card-action").addClass("removeAction");
     var str = $key.prop('outerHTML');
     console.log("This is the key stringified: ");
     console.log(str);

@@ -21,7 +21,7 @@ function generateMeetupResults(apiData) {
     var meetupDate = moment.unix(toEpoch).format("MM/DD/YYYY h:mma");
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
-      "<div class='meetup' id='meetup"+i+"'>",
+      "<div class='meetup hoverable' id='meetup"+i+"'>",
       "<div class='result card' style='z-index: "+(10000-i)+";'>",
       "<div class='card-content'>",
       "<h4 class='grey-text text-darken-1'>"+meetupDate+"</h4>",
@@ -73,8 +73,10 @@ function logMeetupResults(json) {
 
 $(document).ready(function() {
 
-  $(document).on("click", ".theSubmitButton", function(e) {
+$(document).on("click", ".theSubmitButton", function(e) {
     e.preventDefault();
+    cardCounter = 0;
+    $("#meetups").empty();
     // These variables will be used to build the Meetup API request
     var authKey = "2f3f3e6d2a6d20647953153870106d61";
     // queryURLBase is the start of our API endpoint.

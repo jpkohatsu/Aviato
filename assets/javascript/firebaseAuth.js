@@ -26,13 +26,13 @@ const btnLogout = document.getElementById("btnLogout");
 
 //add logn event
 btnLogin.addEventListener("click", e => {
-
+    
     //Get email and pass
     const email = txtEmail.value;
     const pass = txtPassword.value;
-    const auth = firebase.auth();
-
-    //Sign in
+    const auth = firebase.auth(); 
+     
+    //Sign in 
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
 
@@ -43,30 +43,33 @@ btnSignUp.addEventListener("click", e=> {
  const email = txtEmail.value;
  const pass = txtPassword.value;
  const auth = firebase.auth();
-
- //Sign in
+ 
+ //Sign in 
  const promise = auth.createUserWithEmailAndPassword(email, pass);
  promise.catch(e => console.log(e.message));
-
+ 
 });
 
 $("#btnLogout").on("click", function() {
   firebase.auth().signOut();
+  googleSignout();
 });
+  
 
-
-
+  
 //add a realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
         console.log(firebaseUser);
         console.log("logged in");
+
         $(".container").removeClass("hide");
         $(".signInForm").addClass("hide");
-        $("#btnLogout").addClass("show");
+        $("#btnLogout").removeClass("hide");
         
         /////load myjobs cards into my jobs page
         readUserData(userId);
+
 
 
     userId = firebase.auth().currentUser.uid;
@@ -82,13 +85,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       // No user is signed in.
     }
 
+
+
     // $("#btnLogout").removeClass("hide");
+
 
     }else{
         console.log("not logged in");
-
-        // $(".signInForm").addClass("show");
-        // $(".container").addClass("hide");
+        $("#btnLogout").addClass("hide");
     }
 });
 
@@ -98,11 +102,13 @@ function googleSignin() {
    firebase.auth().signInWithPopup(provider).then(function(result) {
       var token = result.credential.accessToken;
       var user = result.user;
-
+		
       console.log(token);
       console.log(user);
-
-
+      
+      $("#btnLogout").removeClass("hide");
+      
+      
    }).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -116,10 +122,12 @@ function googleSignout() {
    firebase.auth().signOut()
 
    .then(function() {
-      console.log('Signout Succesfull')
+      console.log('Signout Succesfull');
+      
    }, function(error) {
-      console.log('Signout Failed')
+      console.log('Signout Failed');
    });
+   $("#btnLogout").addClass("hide");
 };
 
 // User is signed in.
@@ -136,17 +144,21 @@ function readUserData(userId){
 
     var pointerToJobArrayOnFirebase = firebase.database().ref("users/"+userId + "/myjobs");
     pointerToJobArrayOnFirebase.on('value', function(snapshot) {
-        // clear anything currently in MyJobs page
-        $(".myJobsPage").html("");
+    // clear anything currently in MyJobs page
+    $(".myJobsPage").html("");
     var tempJobsArray = snapshot.val();
         console.log("we have read the stuff");
+        if(tempJobsArray!==null){
         for(var i = 0; i < tempJobsArray.length; i++){
             var htmlObject = $(tempJobsArray[i]);
             htmlObject.attr("style", "display: block; position: relative;");
+            htmlObject.find(".card-action").addClass("removeAction");
+            // htmlObject.addClass("myjobs"+i);
             $(".myJobsPage").append(htmlObject);
+            }
         }
-    
 });
+    $(".removeAction").remove();
 };
 
 

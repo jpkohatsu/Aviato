@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aviato</title>
+  <title>Jobiato - Search for jobs and meetups in Austin</title>
 
   <!--Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +22,7 @@
   <header>
     <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center"><img id="jobiatoLogo" src="./assets/images/jobiato.jpg"></img></a>
+      <a href="#" class="brand-logo center"><img id="jobiatoLogo" src="./assets/images/jobiato.png"></img></a>
 
     </div>
   </nav>
@@ -46,13 +46,12 @@
     <!-- Log in with Google -->
 
       <button class="btn waves-effect waves-light theSignInButton" onclick = "googleSignin()">Google Signin</button>
-      <button class="btn waves-effect waves-light theSignOutButton" onclick = "googleSignout()">Google Signout</button>
-      </div> <!-- signInForm -->
-
+       <!-- signInForm -->
+      </div>
 
       <!--Search-->
       <div class="container hide">
-        <button id="btnLogout" class="btn btn-action">
+        <button id="btnLogout" class="btn btn-action hide">
           Log out
         </button>
         <div class="searchBar">
@@ -138,6 +137,9 @@
         <div class="container">
           <div id="meetups"></div>
         </div>
+
+
+
 
 
 
