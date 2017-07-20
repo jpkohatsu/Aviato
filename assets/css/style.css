@@ -45,7 +45,10 @@ h2 {
 
 .allTabs {
   margin-top: 5px;
+}
 
+.tabs .tab a.active {
+  border-bottom: 3px solid rgba(238,110,115,1);
 }
 
 #pageToggle {
