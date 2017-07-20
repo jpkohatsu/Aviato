@@ -1,3 +1,22 @@
+html {
+  background: url() no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn, .btn-large {
+    text-decoration: none;
+    color: #fff;
+    background-color: #1770aa;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+    margin: 2px;
+}
+
 nav, footer.page-footer {
   background-color: #1770aa;
 }
@@ -147,12 +166,13 @@ CARD STYLES
   height: auto;
   width: 140px;
   border-radius: 5px;
-  padding: 12px 15px 15px 15px;
+  padding: 12px;
 }
 
-@media only screen and (max-width: 600px) {
-  #jobiatoLogo {
-    width: 130px;
-    padding: 8px;
-  }
+
+@media only screen and (max-width: 500px) {
+ #jobiatoLogo {
+   width: 130px;
+   padding: 8px;
+ }
 }
