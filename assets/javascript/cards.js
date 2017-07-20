@@ -54,6 +54,9 @@ function generateSearchResults(apiData) {
 
   // Create card elements
   for (var i=0; i < jobsArray.length; i++) {
+    // format company name
+    var company = jobsArray[i].company.trim().replace('.','');
+    console.log("Company name: "+company);
     // To make it more huamn readable, save large block of HTML as an array
     var output = [
       "<div class='job' id='job"+i+"'>",
@@ -62,6 +65,7 @@ function generateSearchResults(apiData) {
       // "<img class='activator' src='http://via.placeholder.com/800x200?text=company+logo'>",
       // "</div>",
       "<div class='card-content'>",
+      "<img data-default-src='' src='https://logo.clearbit.com/" + company + ".com'>",
       "<h4 class='grey-text text-darken-1'>"+jobsArray[i].company+"</h4>",
       "<span class='card-title activator grey-text text-darken-4'>"+jobsArray[i].jobtitle+"</span>",
       "<p>"+jobsArray[i].snippet+"</p>",
@@ -75,6 +79,12 @@ function generateSearchResults(apiData) {
     ];
     output = output.join("");
     $(".resultCards").append(output);
+    $('img[data-default-src]').each(function(){
+       var defaultSrc = $(this).data('default-src');
+       $(this).on('error', function(){
+         $(this).attr({src: defaultSrc}); 
+       });
+    });
   }
   // Show the first card
   showNextCard();
