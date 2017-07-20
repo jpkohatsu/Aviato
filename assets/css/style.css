@@ -133,7 +133,7 @@ CARD STYLES
 }
 
 .job .card .card-content {
-  height: 300px;
+  /*height: 300px;*/
 }
 .job .card .card-content h4, .meetup .card .card-content h4 {
   font-size: 1rem;
